@@ -1,0 +1,16 @@
+//
+//  PrefixHeader.pch
+//  com.xjlx520.www
+//
+//  Created by 勇 舒 on 16/8/8.
+//  Copyright © 2016年 勇 舒. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#define kScreenWidth     [UIScreen mainScreen].bounds.size.width
+#define kScteenHeight   [UIScreen mainScreen].bounds.size.height
+
+//12121211111
+#endif /* PrefixHeader_pch */
