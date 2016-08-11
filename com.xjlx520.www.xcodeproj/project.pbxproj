@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18B43E1E1D5C66DE008EAE27 /* ico_make.png in Resources */ = {isa = PBXBuildFile; fileRef = 18B43E1B1D5C66DE008EAE27 /* ico_make.png */; };
+		18B43E1F1D5C66DE008EAE27 /* JSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B43E1D1D5C66DE008EAE27 /* JSDropDownMenu.m */; };
+		18B43E231D5C6B9E008EAE27 /* ZhiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B43E221D5C6B9E008EAE27 /* ZhiViewController.m */; };
+		18B43E261D5C6BB0008EAE27 /* MusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B43E251D5C6BAF008EAE27 /* MusicViewController.m */; };
 		8C225E465CC6263BACCC1C7E /* libPods-com.xjlx520.www.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F67036E10DC6925246882E /* libPods-com.xjlx520.www.a */; };
 		C404CEF01D45F31400BDB0B9 /* Net1.m in Sources */ = {isa = PBXBuildFile; fileRef = C404CEEF1D45F31400BDB0B9 /* Net1.m */; };
 		C407B4B61D3CAB2000AD4835 /* DrowLineThreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C407B4B51D3CAB2000AD4835 /* DrowLineThreeView.m */; };
@@ -39,7 +43,6 @@
 		C4D915101D52EA3100600BD5 /* tab_1_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = C4D9150C1D52EA3100600BD5 /* tab_1_normal.png */; };
 		C4D915111D52EA3100600BD5 /* tab_3_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = C4D9150D1D52EA3100600BD5 /* tab_3_normal.png */; };
 		C4D915121D52EA3100600BD5 /* tab_4_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = C4D9150E1D52EA3100600BD5 /* tab_4_normal.png */; };
-		C4D915191D531E3700600BD5 /* ico_make.png in Resources */ = {isa = PBXBuildFile; fileRef = C4D915151D531E3700600BD5 /* ico_make.png */; };
 		C4D9C5211D406EED00EAB8C5 /* Net.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D9C5201D406EED00EAB8C5 /* Net.m */; };
 		C4DBA69E1D484F11000EBF10 /* ClassAdsDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DBA69D1D484F11000EBF10 /* ClassAdsDetailTableViewController.m */; };
 		C4DBA6A11D48C09A000EBF10 /* push.png in Resources */ = {isa = PBXBuildFile; fileRef = C4DBA6A01D48C09A000EBF10 /* push.png */; };
@@ -95,6 +98,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18B43E1B1D5C66DE008EAE27 /* ico_make.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_make.png; path = "JSDropDownMenu副本/ico_make.png"; sourceTree = SOURCE_ROOT; };
+		18B43E1C1D5C66DE008EAE27 /* JSDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSDropDownMenu.h; path = "JSDropDownMenu副本/JSDropDownMenu.h"; sourceTree = SOURCE_ROOT; };
+		18B43E1D1D5C66DE008EAE27 /* JSDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSDropDownMenu.m; path = "JSDropDownMenu副本/JSDropDownMenu.m"; sourceTree = SOURCE_ROOT; };
+		18B43E211D5C6B9E008EAE27 /* ZhiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhiViewController.h; sourceTree = "<group>"; };
+		18B43E221D5C6B9E008EAE27 /* ZhiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhiViewController.m; sourceTree = "<group>"; };
+		18B43E241D5C6BAF008EAE27 /* MusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicViewController.h; sourceTree = "<group>"; };
+		18B43E251D5C6BAF008EAE27 /* MusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicViewController.m; sourceTree = "<group>"; };
 		5A911A8CD745030F7C3B0E99 /* Pods-com.xjlx520.www.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.xjlx520.www.debug.xcconfig"; path = "Pods/Target Support Files/Pods-com.xjlx520.www/Pods-com.xjlx520.www.debug.xcconfig"; sourceTree = "<group>"; };
 		C404CEEE1D45F31400BDB0B9 /* Net1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Net1.h; sourceTree = "<group>"; };
 		C404CEEF1D45F31400BDB0B9 /* Net1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Net1.m; sourceTree = "<group>"; };
@@ -150,7 +160,6 @@
 		C4D9150C1D52EA3100600BD5 /* tab_1_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_1_normal.png; sourceTree = "<group>"; };
 		C4D9150D1D52EA3100600BD5 /* tab_3_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_3_normal.png; sourceTree = "<group>"; };
 		C4D9150E1D52EA3100600BD5 /* tab_4_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_4_normal.png; sourceTree = "<group>"; };
-		C4D915151D531E3700600BD5 /* ico_make.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_make.png; sourceTree = "<group>"; };
 		C4D9C51F1D406EED00EAB8C5 /* Net.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Net.h; sourceTree = "<group>"; };
 		C4D9C5201D406EED00EAB8C5 /* Net.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Net.m; sourceTree = "<group>"; };
 		C4DBA69C1D484F11000EBF10 /* ClassAdsDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassAdsDetailTableViewController.h; sourceTree = "<group>"; };
@@ -245,6 +254,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18B43E201D5C67D3008EAE27 /* TV */ = {
+			isa = PBXGroup;
+			children = (
+				18B43E211D5C6B9E008EAE27 /* ZhiViewController.h */,
+				18B43E221D5C6B9E008EAE27 /* ZhiViewController.m */,
+				18B43E241D5C6BAF008EAE27 /* MusicViewController.h */,
+				18B43E251D5C6BAF008EAE27 /* MusicViewController.m */,
+			);
+			name = TV;
+			sourceTree = "<group>";
+		};
 		1DB4066B281D1C1D700178A1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,7 +327,9 @@
 		C4D915181D531E3700600BD5 /* JSDropDownMenu */ = {
 			isa = PBXGroup;
 			children = (
-				C4D915151D531E3700600BD5 /* ico_make.png */,
+				18B43E1B1D5C66DE008EAE27 /* ico_make.png */,
+				18B43E1C1D5C66DE008EAE27 /* JSDropDownMenu.h */,
+				18B43E1D1D5C66DE008EAE27 /* JSDropDownMenu.m */,
 			);
 			name = JSDropDownMenu;
 			path = "/Users/yongshu/Desktop/demo/JSDropDownMenu-master/JSDropDownMenuDemo/JSDropDownMenuDemo/../../JSDropDownMenu";
@@ -431,6 +453,7 @@
 		C4EFD5231D0FE785000CD0FA /* homecontroller */ = {
 			isa = PBXGroup;
 			children = (
+				18B43E201D5C67D3008EAE27 /* TV */,
 				C4F3626F1D12A9170003CFC2 /* SDCycleScrollView */,
 				C4EFD4D71D0FAB0D000CD0FA /* HomeViewController.h */,
 				C4EFD4D81D0FAB0D000CD0FA /* HomeViewController.m */,
@@ -739,7 +762,7 @@
 				C4F3628D1D12AD5D0003CFC2 /* image0.png in Resources */,
 				C4D9150F1D52EA3100600BD5 /* tab_0_normal.png in Resources */,
 				C4F3628E1D12AD5D0003CFC2 /* image1.png in Resources */,
-				C4D915191D531E3700600BD5 /* ico_make.png in Resources */,
+				18B43E1E1D5C66DE008EAE27 /* ico_make.png in Resources */,
 				C4DBA6A11D48C09A000EBF10 /* push.png in Resources */,
 				C4D915121D52EA3100600BD5 /* tab_4_normal.png in Resources */,
 				C41C8B0E1D49EC6D005FF1ED /* Life.png in Resources */,
@@ -788,7 +811,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		63E09B4249E7D7D620FDE77B /* [CP] Copy Pods Resources */ = {
@@ -828,6 +851,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18B43E261D5C6BB0008EAE27 /* MusicViewController.m in Sources */,
 				C404CEF01D45F31400BDB0B9 /* Net1.m in Sources */,
 				C4EFD4D91D0FAB0D000CD0FA /* HomeViewController.m in Sources */,
 				C4EFD4D61D0FAB0D000CD0FA /* AppDelegate.m in Sources */,
@@ -858,6 +882,7 @@
 				C43434AA1D373E3300028CAC /* DrawLineView.m in Sources */,
 				C441634B1D2DFC5C009977FE /* HomeTableViewController.m in Sources */,
 				C4EFD5151D0FB563000CD0FA /* MainNavigationController.m in Sources */,
+				18B43E231D5C6B9E008EAE27 /* ZhiViewController.m in Sources */,
 				C4F2DC231D18F7B700B1A62D /* homeClassifiedAdsTableViewCell.m in Sources */,
 				C4F362871D12A9170003CFC2 /* SDCycleScrollView.m in Sources */,
 				C407B4BC1D3CB2EE00AD4835 /* NewsViewTableViewController.m in Sources */,
@@ -872,6 +897,7 @@
 				C44AEE371D389BD400F75CD2 /* CFLineChartView.m in Sources */,
 				C417121F1D1A3F6900380525 /* throughOurTableViewCell.m in Sources */,
 				C44AEE3A1D38F4CC00F75CD2 /* PushTableViewCell.m in Sources */,
+				18B43E1F1D5C66DE008EAE27 /* JSDropDownMenu.m in Sources */,
 				C4DC46BF1D3F9C2800652522 /* CityListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

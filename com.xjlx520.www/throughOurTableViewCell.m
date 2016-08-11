@@ -39,12 +39,14 @@
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [contentView addSubview:button];
         button.sd_layout.leftSpaceToView(contentView,kScreenWidth/15).topSpaceToView(contentView,kScreenWidth/60).widthIs(kScreenWidth/2-kScreenWidth/14).heightIs(kScreenWidth/3.5-kScreenWidth/36);
+       
         button;
     });
-_button2 = ({
+    _button2 = ({
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
           [contentView addSubview:button];
         button.sd_layout.rightSpaceToView(contentView,kScreenWidth/15).topSpaceToView(contentView,kScreenWidth/60).widthIs(kScreenWidth/2-kScreenWidth/14).heightIs(kScreenWidth/3.5-kScreenWidth/36);
+    
         button;
     });
     UIView *view3 = ({

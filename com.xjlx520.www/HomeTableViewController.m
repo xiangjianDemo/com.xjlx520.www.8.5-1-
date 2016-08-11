@@ -26,6 +26,8 @@
 #import "UIImageView+WebCache.h" // sdwebimage
 #import "ClassAdsViewController.h"
 #import "MBProgressHUD.h"
+#import "ZhiViewController.h"
+#import "MusicViewController.h"
 @interface HomeTableViewController ()<SDCycleScrollViewDelegate,homeScrollViewTableViewCellDelegate,homeClassifiedAdsTableViewCellDelegate,throughOurTableViewCellDelegate,SDWebImageManagerDelegate,UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate>{
     NSString *identifier;
     SDCycleScrollView *cycleScrollView1;
@@ -334,7 +336,10 @@
             throughOurTableViewCell *throuchCell = [[throughOurTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:throughOurCell];
             throuchCell.selectionStyle = UITableViewCellSelectionStyleNone;
             [throuchCell.button1 setImage:[UIImage imageNamed:@"class"] forState: UIControlStateNormal];
+            [throuchCell.button1 addTarget:self action:@selector(buttonAction1:) forControlEvents:UIControlEventTouchUpInside];
+            
             [throuchCell.button2 setImage:[UIImage imageNamed:@"XJian"] forState:UIControlStateNormal];
+            [throuchCell.button2 addTarget:self action:@selector(buttonAction2:) forControlEvents:UIControlEventTouchUpInside];
             throuchCell.label1.text = @"分类直播";
             throuchCell.label2.text = @"享见乐播";
             throuchCell.backgroundColor = [UIColor whiteColor];
@@ -373,6 +378,21 @@
     
 }
 
+//点击直播跳转
+- (void)buttonAction1:(UIButton *)button1{
+    
+    ZhiViewController *zhiview = [[ZhiViewController alloc]init];
+    [zhiview setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:zhiview animated:YES];
+    NSLog(@"分类直播被电击");
+}
+- (void)buttonAction2:(UIButton *)button2{
+    
+    MusicViewController *Musicview = [[MusicViewController alloc]init];
+    [Musicview setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:Musicview animated:YES];
+    NSLog(@"享乐直播被电击");
+}
 
 #pragma mark ＝＝＝collextionview的delegate
 
