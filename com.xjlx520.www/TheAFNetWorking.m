@@ -28,7 +28,7 @@
     MBProgressHUD *hud;
     if (show==YES) {
         hud = [[MBProgressHUD alloc]initWithView:view];
-          hud.label.text = @"加载中。。。";
+          hud.label.text = @"加载中";
         @try {
              [view addSubview:hud];
         } @catch (NSException *exception) {
@@ -76,7 +76,7 @@
     MBProgressHUD *hud;
     if (show==YES) {
         hud = [[MBProgressHUD alloc]initWithView:view];
-        hud.label.text = @"加载中。。。";
+        hud.label.text = @"加载中";
         [view addSubview:hud];
         [hud showAnimated:YES];
     }

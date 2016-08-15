@@ -54,6 +54,7 @@
         view.backgroundColor = [UIColor colorWithRed:0.068 green:0.500 blue:0.223 alpha:1.000];
         [contentView addSubview:view];
         view.sd_layout.topSpaceToView(_button2,5).heightIs(1).leftEqualToView(contentView).rightSpaceToView(contentView,0);
+        
         view;
     });
 

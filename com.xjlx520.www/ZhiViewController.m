@@ -7,6 +7,12 @@
 //
 
 #import "ZhiViewController.h"
+#import "NEEnterViewController.h"
+
+#import "NEStartLiveStreamViewController.h"
+
+
+#import "NELivePlayerViewController.h"
 
 @interface ZhiViewController ()<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource>{
     
@@ -31,6 +37,7 @@
     [self createBigScrollView];
     [self createScrollView];
     [self addButton];
+    [self createCollectionView];
     
     // Do any additional setup after loading the view.
 }
@@ -40,7 +47,7 @@
 - (void)createBigScrollView{
     
     _bigScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 104, self.view.frame.size.width, self.view.frame.size.height-44)];
-    _bigScrollView.backgroundColor = [UIColor blackColor];
+    _bigScrollView.backgroundColor = [UIColor whiteColor];
     //控制滚动视图是否反弹过去内容的边缘
     _bigScrollView.bounces = NO;
     _bigScrollView.delegate = self;
@@ -119,7 +126,7 @@
     _button.transform = CGAffineTransformMakeScale(1, 1);
     _button = button;
     _button.transform = CGAffineTransformMakeScale(1.1, 1.1);
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.5 animatio00ns:^{
         _label.frame = CGRectMake(CGRectGetMinX(_button.frame), CGRectGetMaxY(_button.frame)-1, _screenWidth, 2);
     }];
     [UIView animateWithDuration:0.5 animations:^{
@@ -129,28 +136,62 @@
 
 //创建第一页的竖向滚动视图:
 - (void)createCollectionView {
-    CGRect frame = CGRectMake(0,0, self.view.frame.size.width,CGRectGetHeight(_bigScrollView.frame)-64-44);
-    _collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:[self createLayout]];
-    _collectionView.bounces = YES;
-    _collectionView.dataSource = self;
-    _collectionView.delegate = self;
+    CGRect frame = CGRectMake(0,0, self.view.frame.size.width/2-10,120);
+
+    UIButton *button = [[UIButton alloc]initWithFrame:frame];
+    [button setImage:[UIImage imageNamed:@"class"] forState: UIControlStateNormal];
+    [button addTarget:self action:@selector(joinButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_bigScrollView addSubview:button];
     
-    _collectionView.backgroundColor = [UIColor whiteColor];
-    [_collectionView registerClass:[UICollectionView class] forCellWithReuseIdentifier:@"cellId"];
-    [_bigScrollView addSubview:_collectionView];
+    UIButton *button2 = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(button.frame)+20, 0, self.view.frame.size.width/2-10, 120)];
+    [button2 setImage:[UIImage imageNamed:@"XJian"] forState:UIControlStateNormal];
+    [button2 addTarget:self action:@selector(playButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_bigScrollView addSubview:button2];
     
+//    UIView *view1 = [[UIView alloc]initWithFrame:frame];
+//
+//    view1.backgroundColor = [UIColor greenColor];
+//    [_bigScrollView addSubview: view1];
+//    //直播点击手势：
+//    UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(btnPressed1:)];
+//    
+//    //一个手指点击触发：
+//    tgr.numberOfTouchesRequired = 1;
+//    //给UIImageView添加一个点击手势
+//    view1.userInteractionEnabled = YES;
+//    [view1 addGestureRecognizer:tgr];
+//    
+//    UIView *view2 = [[UIView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(view1.frame)+20, 0, self.view.frame.size.width/2-10, 120)];
+//    view2.backgroundColor = [UIColor brownColor];
+//    [_bigScrollView addSubview: view2];
+}
+//跳转直播页面
+//- (void)btnPressed1:(UITapGestureRecognizer*)sender{
+//    
+//    NEEnterViewController *vc = [[NEEnterViewController alloc] init];
+//    [vc setHidesBottomBarWhenPushed:YES];
+//    [self.navigationController pushViewController:vc animated:YES];
+//}
+
+- (void)joinButtonPressed:(id)sender {
+    
+    NEStartLiveStreamViewController *startLive = [[NEStartLiveStreamViewController alloc] initWithNibName:nil bundle:nil];
+    startLive.pushUrl = @"rtmp://p68821d29.live.126.net/live/cbfa59943264487ab8e614165ce6c01c?wsSecret=ced02391f681db2b9ac1271fb564a6cf&wsTime=1470982510";
+    [self presentViewController:startLive animated:YES completion:nil];
 }
 
-- (UICollectionViewLayout *)createLayout
-{
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    //最小行间距：
-    layout.minimumLineSpacing = 10;
-    //item尺寸：
-    layout.itemSize = CGSizeMake((CGRectGetWidth(self.view.frame)-30)/2,(CGRectGetWidth(self.view.frame)-30)*4/7);
-    //四周边界：
-    layout.sectionInset = UIEdgeInsetsMake(10,10,10,10);
-    return layout;
+- (void)playButtonPressed:(id)sender {
+    
+    NSURL *url = [[NSURL alloc] initWithString:@"http://pullhls68821d29.live.126.net/live/cbfa59943264487ab8e614165ce6c01c/playlist.m3u8"];
+    
+    NSMutableArray *decodeParm = [[NSMutableArray alloc] init];
+    [decodeParm addObject:@"software"];
+    [decodeParm addObject:@"livestream"];
+    
+    NELivePlayerViewController *livePlayerVC = [[NELivePlayerViewController alloc] initWithURL:url andDecodeParm:decodeParm];
+    livePlayerVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:livePlayerVC animated:YES completion:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {
