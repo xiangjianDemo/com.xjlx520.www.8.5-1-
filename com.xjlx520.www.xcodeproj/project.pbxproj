@@ -66,7 +66,6 @@
 		C407B4B61D3CAB2000AD4835 /* DrowLineThreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C407B4B51D3CAB2000AD4835 /* DrowLineThreeView.m */; };
 		C407B4B91D3CB2BB00AD4835 /* FindViewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C407B4B81D3CB2BB00AD4835 /* FindViewTableViewController.m */; };
 		C407B4BC1D3CB2EE00AD4835 /* NewsViewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C407B4BB1D3CB2EE00AD4835 /* NewsViewTableViewController.m */; };
-		C407B4BF1D3CB38300AD4835 /* CenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C407B4BE1D3CB38300AD4835 /* CenterTableViewController.m */; };
 		C407B4C31D3CC1EF00AD4835 /* RollingAdvertisingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C407B4C21D3CC1EF00AD4835 /* RollingAdvertisingTableViewController.m */; };
 		C407B4C61D3CC21600AD4835 /* PushAdvertisingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C407B4C51D3CC21600AD4835 /* PushAdvertisingTableViewController.m */; };
 		C4103BEC1D112DC700CECC1B /* myTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C4103BEB1D112DC700CECC1B /* myTabBar.m */; };
@@ -77,6 +76,10 @@
 		C41C8B0D1D49EC6D005FF1ED /* LuckDraw.png in Resources */ = {isa = PBXBuildFile; fileRef = C41C8B091D49EC6D005FF1ED /* LuckDraw.png */; };
 		C41C8B0E1D49EC6D005FF1ED /* Life.png in Resources */ = {isa = PBXBuildFile; fileRef = C41C8B0A1D49EC6D005FF1ED /* Life.png */; };
 		C41C8B0F1D49EC6D005FF1ED /* class.png in Resources */ = {isa = PBXBuildFile; fileRef = C41C8B0B1D49EC6D005FF1ED /* class.png */; };
+		C423DB901D62B7470059AFF9 /* Content_TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C423DB8F1D62B7470059AFF9 /* Content_TableViewCell.m */; };
+		C423DB931D62B7A90059AFF9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C423DB911D62B7A90059AFF9 /* RegisterViewController.m */; };
+		C423DB961D62B7F10059AFF9 /* CenterViewTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C423DB941D62B7F10059AFF9 /* CenterViewTableViewController.m */; };
+		C423DB991D62B8B30059AFF9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C423DB981D62B8B30059AFF9 /* LoginViewController.m */; };
 		C43434AA1D373E3300028CAC /* DrawLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = C43434A91D373E3300028CAC /* DrawLineView.m */; };
 		C43434AD1D3765EE00028CAC /* DrawLineTowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C43434AC1D3765EE00028CAC /* DrawLineTowView.m */; };
 		C441634B1D2DFC5C009977FE /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C441634A1D2DFC5C009977FE /* HomeTableViewController.m */; };
@@ -96,7 +99,6 @@
 		C4D9C5211D406EED00EAB8C5 /* Net.m in Sources */ = {isa = PBXBuildFile; fileRef = C4D9C5201D406EED00EAB8C5 /* Net.m */; };
 		C4DBA69E1D484F11000EBF10 /* ClassAdsDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DBA69D1D484F11000EBF10 /* ClassAdsDetailTableViewController.m */; };
 		C4DBA6A11D48C09A000EBF10 /* push.png in Resources */ = {isa = PBXBuildFile; fileRef = C4DBA6A01D48C09A000EBF10 /* push.png */; };
-		C4DBA6A41D48D274000EBF10 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DBA6A31D48D274000EBF10 /* LoginViewController.m */; };
 		C4DC46BF1D3F9C2800652522 /* CityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4DC46BE1D3F9C2800652522 /* CityListViewController.m */; };
 		C4EFD4D31D0FAB0D000CD0FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EFD4D21D0FAB0D000CD0FA /* main.m */; };
 		C4EFD4D61D0FAB0D000CD0FA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4EFD4D51D0FAB0D000CD0FA /* AppDelegate.m */; };
@@ -404,8 +406,6 @@
 		C407B4B81D3CB2BB00AD4835 /* FindViewTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindViewTableViewController.m; sourceTree = "<group>"; };
 		C407B4BA1D3CB2EE00AD4835 /* NewsViewTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewTableViewController.h; sourceTree = "<group>"; };
 		C407B4BB1D3CB2EE00AD4835 /* NewsViewTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewTableViewController.m; sourceTree = "<group>"; };
-		C407B4BD1D3CB38300AD4835 /* CenterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterTableViewController.h; sourceTree = "<group>"; };
-		C407B4BE1D3CB38300AD4835 /* CenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterTableViewController.m; sourceTree = "<group>"; };
 		C407B4C11D3CC1EF00AD4835 /* RollingAdvertisingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RollingAdvertisingTableViewController.h; sourceTree = "<group>"; };
 		C407B4C21D3CC1EF00AD4835 /* RollingAdvertisingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RollingAdvertisingTableViewController.m; sourceTree = "<group>"; };
 		C407B4C41D3CC21600AD4835 /* PushAdvertisingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushAdvertisingTableViewController.h; sourceTree = "<group>"; };
@@ -421,6 +421,14 @@
 		C41C8B091D49EC6D005FF1ED /* LuckDraw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LuckDraw.png; sourceTree = "<group>"; };
 		C41C8B0A1D49EC6D005FF1ED /* Life.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Life.png; sourceTree = "<group>"; };
 		C41C8B0B1D49EC6D005FF1ED /* class.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = class.png; sourceTree = "<group>"; };
+		C423DB8E1D62B7470059AFF9 /* Content_TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Content_TableViewCell.h; sourceTree = "<group>"; };
+		C423DB8F1D62B7470059AFF9 /* Content_TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Content_TableViewCell.m; sourceTree = "<group>"; };
+		C423DB911D62B7A90059AFF9 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		C423DB921D62B7A90059AFF9 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		C423DB941D62B7F10059AFF9 /* CenterViewTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterViewTableViewController.m; sourceTree = "<group>"; };
+		C423DB951D62B7F10059AFF9 /* CenterViewTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterViewTableViewController.h; sourceTree = "<group>"; };
+		C423DB971D62B8B30059AFF9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		C423DB981D62B8B30059AFF9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		C43434A81D373E3300028CAC /* DrawLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawLineView.h; sourceTree = "<group>"; };
 		C43434A91D373E3300028CAC /* DrawLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawLineView.m; sourceTree = "<group>"; };
 		C43434AB1D3765EE00028CAC /* DrawLineTowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawLineTowView.h; sourceTree = "<group>"; };
@@ -455,8 +463,6 @@
 		C4DBA69C1D484F11000EBF10 /* ClassAdsDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassAdsDetailTableViewController.h; sourceTree = "<group>"; };
 		C4DBA69D1D484F11000EBF10 /* ClassAdsDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassAdsDetailTableViewController.m; sourceTree = "<group>"; };
 		C4DBA6A01D48C09A000EBF10 /* push.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = push.png; sourceTree = "<group>"; };
-		C4DBA6A21D48D274000EBF10 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		C4DBA6A31D48D274000EBF10 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		C4DC46BD1D3F9C2800652522 /* CityListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityListViewController.h; sourceTree = "<group>"; };
 		C4DC46BE1D3F9C2800652522 /* CityListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityListViewController.m; sourceTree = "<group>"; };
 		C4EFD4CE1D0FAB0D000CD0FA /* com.xjlx520.www.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = com.xjlx520.www.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1289,6 +1295,8 @@
 		C4EFD5301D0FE89E000CD0FA /* centerView */ = {
 			isa = PBXGroup;
 			children = (
+				C423DB8E1D62B7470059AFF9 /* Content_TableViewCell.h */,
+				C423DB8F1D62B7470059AFF9 /* Content_TableViewCell.m */,
 			);
 			name = centerView;
 			sourceTree = "<group>";
@@ -1298,10 +1306,12 @@
 			children = (
 				C4EFD50D1D0FAF02000CD0FA /* CenterViewController.h */,
 				C4EFD50E1D0FAF02000CD0FA /* CenterViewController.m */,
-				C4DBA6A21D48D274000EBF10 /* LoginViewController.h */,
-				C4DBA6A31D48D274000EBF10 /* LoginViewController.m */,
-				C407B4BD1D3CB38300AD4835 /* CenterTableViewController.h */,
-				C407B4BE1D3CB38300AD4835 /* CenterTableViewController.m */,
+				C423DB971D62B8B30059AFF9 /* LoginViewController.h */,
+				C423DB981D62B8B30059AFF9 /* LoginViewController.m */,
+				C423DB941D62B7F10059AFF9 /* CenterViewTableViewController.m */,
+				C423DB951D62B7F10059AFF9 /* CenterViewTableViewController.h */,
+				C423DB911D62B7A90059AFF9 /* RegisterViewController.m */,
+				C423DB921D62B7A90059AFF9 /* RegisterViewController.h */,
 			);
 			name = centerController;
 			sourceTree = "<group>";
@@ -1411,6 +1421,7 @@
 				TargetAttributes = {
 					C4EFD4CD1D0FAB0D000CD0FA = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 27QFC95YA8;
 					};
 					C4EFD4E61D0FAB0D000CD0FA = {
 						CreatedOnToolsVersion = 7.3;
@@ -1543,6 +1554,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C423DB991D62B8B30059AFF9 /* LoginViewController.m in Sources */,
 				18B43E261D5C6BB0008EAE27 /* MusicViewController.m in Sources */,
 				C404CEF01D45F31400BDB0B9 /* Net1.m in Sources */,
 				C4EFD4D91D0FAB0D000CD0FA /* HomeViewController.m in Sources */,
@@ -1557,7 +1569,6 @@
 				C4DBA69E1D484F11000EBF10 /* ClassAdsDetailTableViewController.m in Sources */,
 				C41555781D349254009316D4 /* homeClassCollectionViewCell.m in Sources */,
 				18B43F3B1D5C7322008EAE27 /* NEPushUrlViewController.m in Sources */,
-				C407B4BF1D3CB38300AD4835 /* CenterTableViewController.m in Sources */,
 				C4BF6F5F1D584EDF005315E7 /* TheAFNetWorking.m in Sources */,
 				C43434AD1D3765EE00028CAC /* DrawLineTowView.m in Sources */,
 				C4EFD5091D0FAEA5000CD0FA /* NewsViewController.m in Sources */,
@@ -1578,7 +1589,6 @@
 				C4F2DC201D18E34000B1A62D /* homeScrollViewTableViewCell.m in Sources */,
 				C4F362831D12A9170003CFC2 /* TAAnimatedDotView.m in Sources */,
 				C4EFD5061D0FAE7F000CD0FA /* FindViewController.m in Sources */,
-				C4DBA6A41D48D274000EBF10 /* LoginViewController.m in Sources */,
 				18B43F411D5C7322008EAE27 /* NEFilterRightView.m in Sources */,
 				C49D03DE1D59B9D70026852B /* ClassiFactionModel.m in Sources */,
 				C43434AA1D373E3300028CAC /* DrawLineView.m in Sources */,
@@ -1593,10 +1603,13 @@
 				C4EFD50F1D0FAF02000CD0FA /* CenterViewController.m in Sources */,
 				18B43F3D1D5C7322008EAE27 /* NEAudioModelBtn.m in Sources */,
 				C407B4C61D3CC21600AD4835 /* PushAdvertisingTableViewController.m in Sources */,
+				C423DB901D62B7470059AFF9 /* Content_TableViewCell.m in Sources */,
 				C4F362851D12A9170003CFC2 /* TAPageControl.m in Sources */,
 				18B43F3F1D5C7322008EAE27 /* NEFilterLeftView.m in Sources */,
 				C4D9C5211D406EED00EAB8C5 /* Net.m in Sources */,
+				C423DB961D62B7F10059AFF9 /* CenterViewTableViewController.m in Sources */,
 				C4F362811D12A9170003CFC2 /* NSData+SDDataCache.m in Sources */,
+				C423DB931D62B7A90059AFF9 /* RegisterViewController.m in Sources */,
 				C407B4C31D3CC1EF00AD4835 /* RollingAdvertisingTableViewController.m in Sources */,
 				C4103BEC1D112DC700CECC1B /* myTabBar.m in Sources */,
 				C4F362881D12A9170003CFC2 /* UIView+SDExtension.m in Sources */,
@@ -1752,6 +1765,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = com.xjlx520.www/Info.plist;
@@ -1764,6 +1779,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gzkiwi.--1-0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1774,6 +1790,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULE_DEBUGGING = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/com.xjlx520.www.8.4/PrefixHeader.pch";
 				INFOPLIST_FILE = com.xjlx520.www/Info.plist;
@@ -1786,6 +1804,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gzkiwi.--1-0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

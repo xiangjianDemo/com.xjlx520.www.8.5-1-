@@ -25,7 +25,7 @@
 //    等待小转盘
     UIActivityIndicatorView *activity;
     
-    NSMutableArray *classArrayData;
+    NSArray *classArrayData;
     
     NSArray *classArray;
     
@@ -228,25 +228,33 @@
 
 - (void)postClassAdsdata{
     
-    NSString *url = @"http://219.151.12.30:8081/admin/webapi/Handlerlx_guanggao.ashx";
+    NSString *url = [TheAFNetWorking httpURLStr:@"admin/webapi/Handlerlx_guanggao.ashx"] ;
     
     NSDictionary *dicc = @{@"flag":@"tb_lx_guanggao_query",@"guanggao_type":lx_id,@"pags":@"1",@"page":@"10"};
+    
+   
     [TheAFNetWorking getHttpsURL:url parameters:dicc AndSuccess:^(NSArray *dic) {
 //        NSString *resonseString = [[NSString alloc]initWithData:dic encoding:NSUTF8StringEncoding];
         
         classArrayData = [NSMutableArray array];
-        [classArrayData addObject:dic];
+//        [classArrayData addObject:dic];
+        classArrayData = dic;
 //        classArrayData = [NSJSONSerialization JSONObjectWithData:dic options:NSJSONReadingMutableContainers error:nil];
 //        classArrayData = [NSJSONSerialization JSONObjectWithStream:dic options:NSJSONReadingMutableContainers error:nil];
-        [self.tableView reloadData];
-        NSLog(@"显示分类广告：%@",classArrayData);
         
+        NSLog(@"显示分类广告：%@",classArrayData);
+        [self.tableView reloadData];
         
     } orfailure:^{
-        
+        NSLog(@"分类广告请求失败");
     } showHUD:YES];
     
     
+   /* [TheAFNetWorking postHttpsURL:url parameters:dicc AndSuccess:^(NSArray *dic) {
+        NSLog(@"显示分类广告：%@",classArrayData);
+    } orfailure:^{
+        NSLog(@"分类广告请求失败");
+    } showHUD:YES];*/
 //    AFHTTPRequestOperationManager *httpmanager = [AFHTTPRequestOperationManager manager];
 //    httpmanager.requestSerializer = [AFJSONRequestSerializer serializer];
 //    httpmanager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -281,13 +289,13 @@
 
 // 请求分类推荐广告
 - (void)postClassifiedAdData{
-    NSString *url = @"http://219.151.12.30:8081/admin/webapi/Handlerlx_guanggao.ashx?flag=tb_lx_guanggao_recommend";
+    NSString *url = [TheAFNetWorking httpURLStr:@"admin/webapi/Handlerlx_guanggao.ashx?flag=tb_lx_guanggao_recommend"] ;
     NSDictionary *paramers = @{@"guanggao_type":lx_id};
     
     [TheAFNetWorking getHttpsURL:url parameters:paramers AndSuccess:^(NSArray *dic) {
-        NSLog(@"%@",dic);
+        NSLog(@"推荐分类请求成功：%@",dic);
     } orfailure:^{
-        
+        NSLog(@"推荐分类请求失败");
     } showHUD:YES];
     
 //    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -301,12 +309,12 @@
 }
 // 请求分级数据
 - (void)postClassificationData{
-    NSString *url = @"http://219.151.12.30:8081/admin/webapi/Handler_advertisement_fenl.ashx?flag=advertisement_details";
+    NSString *url = [TheAFNetWorking httpURLStr:@"admin/webapi/Handler_advertisement_fenl.ashx?flag=advertisement_details"];
     NSDictionary *paramers = @{@"fenl_type":lx_id};
     [TheAFNetWorking getHttpsURL:url parameters:paramers AndSuccess:^(NSArray *dic) {
-        
+        NSLog(@"分级请求成功：%@",dic);
     } orfailure:^{
-        
+        NSLog(@"分级请求失败");
     } showHUD:YES];
     
 //    AFHTTPRequestOperationManager *manger = [AFHTTPRequestOperationManager manager];
@@ -513,11 +521,16 @@
             imageView.image = [UIImage imageNamed:@"wo"];
 //            imageView.backgroundColor = [UIColor orangeColor];
             
+//            NSString *httpUrl = @"http://219.151.12.30:8081";
+//            NSString *url = [[NSString alloc]initWithFormat:@"%@%@",httpUrl,classArrayData[indexPath.row][@"lx_picture"]];
+//            
+//           
+//            [imageView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"tab_3_normal"]];
+            imageView.tag = indexPath.row;
             NSString *httpUrl = @"http://219.151.12.30:8081";
+            NSLog(@"%@",classArrayData[indexPath.row][@"lx_picture"]);
             NSString *url = [[NSString alloc]initWithFormat:@"%@%@",httpUrl,classArrayData[indexPath.row][@"lx_picture"]];
-            
-           
-            [imageView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@""]];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:url]  placeholderImage:[UIImage imageNamed:@"hongbao"]];
             
             [cell.contentView addSubview:imageView];
             

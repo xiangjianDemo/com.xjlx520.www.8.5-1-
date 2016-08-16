@@ -30,14 +30,25 @@
 }
 
 - (void)postPushAdsdata{
-    NSString *url = @"http://219.151.12.30:8081/admin/webapi/Handlerlx_guanggao.ashx?flag=tb_lx_guanggao_mytuijian";
+    NSString *url = [TheAFNetWorking httpURLStr:@"admin/webapi/Handlerlx_guanggao.ashx?flag=tb_lx_guanggao_mytuijian"];
     
     NSDictionary *dicc = @{@"useraihao":@"29",@"userage":@"25",@"usersex":@"0",@"usermoney":@"0.0000",@"pags":@"1",@"page":@"10"};
+   
     [TheAFNetWorking  postHttpsURL:url  parameters:dicc AndSuccess:^(NSArray *dic) {
         
+        arr = [NSArray array];
+        arr = dic;
+        NSLog(@"用户推荐请求成功%@",arr);
+        [self.tableView reloadData];
     } orfailure:^{
         
     } showHUD:YES];
+    
+//    [TheAFNetWorking getHttpsURL:url parameters:dicc AndSuccess:^(NSArray *dic) {
+//        NSLog(@"用户推荐请求成功%@",dic);
+//    } orfailure:^{
+//        
+//    } showHUD:YES];
     
 //    AFHTTPRequestOperationManager *httpmanager = [AFHTTPRequestOperationManager manager];
 //    httpmanager.requestSerializer = [AFJSONRequestSerializer serializer];
@@ -131,7 +142,7 @@
     if (url) {
 //        [[SDWebImageManager sharedManager] downloadWithURL:[NSURL URLWithString:url] delegate:self];
     }
-    [imageView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"hongbao"]];
     [cell.contentView addSubview:imageView];
     
     UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(94, 0, [UIScreen mainScreen].bounds.size.width-94, 30)];

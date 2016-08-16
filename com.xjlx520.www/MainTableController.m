@@ -14,7 +14,7 @@
 #import "HomeTableViewController.h"
 #import "FindViewTableViewController.h"
 #import "NewsViewTableViewController.h"
-#import "CenterTableViewController.h"
+#import "CenterViewTableViewController.h"
 
 #import "MainNavigationController.h"
 
@@ -68,7 +68,7 @@
     FindViewTableViewController * subscriptionVc = [[FindViewTableViewController alloc] init];
     [self SetupChildVc:subscriptionVc title:@"发现" image:@"tab_4_normal" selectedImage:@""];
     //    个人中心
-     CenterViewController *meVc = [[CenterViewController alloc] init];
+     CenterViewTableViewController *meVc = [[CenterViewTableViewController alloc] init];
     [self SetupChildVc:meVc title:@"我" image:@"tab_3_normal" selectedImage:@""];
     
 }

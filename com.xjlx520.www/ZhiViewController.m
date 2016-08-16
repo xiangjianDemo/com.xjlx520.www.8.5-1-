@@ -126,7 +126,7 @@
     _button.transform = CGAffineTransformMakeScale(1, 1);
     _button = button;
     _button.transform = CGAffineTransformMakeScale(1.1, 1.1);
-    [UIView animateWithDuration:0.5 animatio00ns:^{
+    [UIView animateWithDuration:0.5 animations:^{
         _label.frame = CGRectMake(CGRectGetMinX(_button.frame), CGRectGetMaxY(_button.frame)-1, _screenWidth, 2);
     }];
     [UIView animateWithDuration:0.5 animations:^{

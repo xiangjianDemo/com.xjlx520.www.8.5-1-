@@ -13,7 +13,7 @@
 {
     NSString *lx_id;
     NSString *title1;
-    NSMutableArray *classArrayData;
+    NSArray *classArrayData;
     NSMutableArray *arr;
     NSString *string;
     NSDictionary *dic1;
@@ -59,12 +59,13 @@
 
 - (void)postClassAdsDetaildata{
     
-    NSString *url = @"http://219.151.12.30:8081/admin/webapi/Handlerlx_guanggao.ashx";
+    NSString *url = [TheAFNetWorking httpURLStr:@"admin/webapi/Handlerlx_guanggao.ashx"];
     
     NSDictionary *dicc = @{@"flag":@"tb_lx_guanggao_show",@"lx_id":lx_id};
     [TheAFNetWorking getHttpsURL:url parameters:dicc AndSuccess:^(NSArray *dic) {
-                classArrayData = [NSMutableArray array];
-                [classArrayData addObject:dic];
+                classArrayData = [NSArray array];
+//                [classArrayData addObject:dic];
+        classArrayData = dic;
 //                classArrayData = [NSJSONSerialization JSONObjectWithData:dic options:NSJSONReadingMutableContainers error:nil];
                 [self.tableView reloadData];
 
@@ -187,7 +188,7 @@
 - (void)action:(UIButton *)sender{
     
     
-    NSString *url = @"http://219.151.12.30:8081/admin/webapi/Handler_Winning_list.ashx?flag=dwtype";
+    NSString *url = [TheAFNetWorking httpURLStr:@"http://219.151.12.30:8081/admin/webapi/Handler_Winning_list.ashx?flag=dwtype"];
     NSDictionary *paramers = @{@"ld_name":@"越野",@"ld_name_id":@"14",@"user_id":@"1",@"user_name":@"何建雄",@"types":@"A",@"Secondinvitationid":@"0",@"firstinvitationid":@"0"};
     
     [TheAFNetWorking postHttpsURL:url parameters:paramers AndSuccess:^(NSArray *dic) {

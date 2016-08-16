@@ -9,6 +9,8 @@
 #import "LoginViewController.h"
 //#import "AFNetworking.h"
 #import "TheAFNetWorking.h"
+#import <SDAutoLayout.h>
+#import "RegisterViewController.h"
 
 @interface LoginViewController ()<UITextFieldDelegate>
 {
@@ -19,6 +21,14 @@
     
     NSArray *arr;
     NSMutableDictionary *reData;
+    
+    UITextField *textField1;
+    UITextField *textField2;
+    
+    UIButton *button1;
+    UIButton *button2;
+    
+    
 }
 @end
 
@@ -35,9 +45,9 @@
 
     NSArray *textArray1 = @[@"请输入账号",@"请输入密码"];
     NSArray *labelArray = @[@"账号:",@"密码:"];
-    
+    NSArray *buttonArray = @[@"登录",@"注册"];
     for (int i = 0; i<2; i++) {
-        UITextField *textField = [[UITextField alloc]initWithFrame:CGRectMake(160/2, 64+100 + 60*i, [UIScreen mainScreen].bounds.size.width-160, 40)];
+        UITextField *textField = [[UITextField alloc]initWithFrame:CGRectMake(kScreenWidth/5, kScteenHeight/10+kScteenHeight/6 + kScteenHeight/9.6*i, [UIScreen mainScreen].bounds.size.width-kScreenWidth/5*2, kScteenHeight/15)];
         textField.backgroundColor = [UIColor whiteColor];
         textField.tag = 10+i;
         textField.delegate = self;
@@ -58,14 +68,25 @@
         
     }
     
-    UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    loginButton.frame = CGRectMake(120, 64+200+50, [UIScreen mainScreen].bounds.size.width-240, 40);
-    loginButton.backgroundColor = [UIColor greenColor];
-    [loginButton setTitle:@"登录" forState:UIControlStateNormal];
-    [loginButton addTarget:self action:@selector(action:) forControlEvents:UIControlEventTouchUpInside];
-    loginButton.tag = 20;
     
-    [self.view addSubview:loginButton];
+    for (int i = 0; i < 2; i++) {
+        UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        loginButton.frame = CGRectMake(kScreenWidth/3, kScteenHeight/2.1 + kScteenHeight/10*i, [UIScreen mainScreen].bounds.size.width-kScreenWidth/3*2, kScteenHeight/15);
+        loginButton.backgroundColor = [UIColor greenColor];
+        [loginButton setTitle:buttonArray[i] forState:UIControlStateNormal];
+        [loginButton addTarget:self action:@selector(action:) forControlEvents:UIControlEventTouchUpInside];
+        loginButton.tag = 20+i;
+        
+        [self.view addSubview:loginButton];
+    }
+//    UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    loginButton.frame = CGRectMake(kScreenWidth/3, kScteenHeight/2.1, [UIScreen mainScreen].bounds.size.width-kScreenWidth/3*2, kScteenHeight/15);
+//    loginButton.backgroundColor = [UIColor greenColor];
+//    [loginButton setTitle:@"登录" forState:UIControlStateNormal];
+//    [loginButton addTarget:self action:@selector(action:) forControlEvents:UIControlEventTouchUpInside];
+//    loginButton.tag = 20;
+//    
+//    [self.view addSubview:loginButton];
     
 //    保存用户输入的 用户名和密码
     NSUserDefaults *UserDefaults = [NSUserDefaults standardUserDefaults];
@@ -74,6 +95,8 @@
     
     userName.text = [UserDefaults objectForKey:@"user_name"];
     userPwd.text = [UserDefaults objectForKey:@"user_pwd"];
+    
+    
     
     
 }
@@ -88,22 +111,37 @@
 - (void)action:(UIButton *)sender{
     
    
-        if (userName) {
+    
+    switch (sender.tag) {
+        case 20:
+            if (userName) {
                 if (pwdStr) {
                     [self loginRequestData];
                 }else{
-                   
+                    
                 }
             }else{
                 
             }
+            break;
+        
+        case 21:
+        {
+            RegisterViewController *registeView = [[RegisterViewController alloc]init];;
+            [self.navigationController pushViewController:registeView animated:YES];
+        }
+            break;
+            
+        default:
+            break;
+    }
     
 }
 
 // 登录请求
 - (void)loginRequestData{
     
-    NSString *url = @"http://219.151.12.30:8081/admin/webapi/Handler.ashx?flag=denglu";
+    NSString *url = @"admin/webapi/Handler.ashx?flag=denglu";
     
     NSDictionary *parmeters = @{@"phone":nameStr,@"user_password":pwdStr};
     
@@ -113,44 +151,7 @@
         
     } showHUD:YES];
     
-//    AFHTTPRequestOperationManager *httpmanager = [AFHTTPRequestOperationManager manager];
-//    httpmanager.requestSerializer = [AFJSONRequestSerializer serializer];
-//    httpmanager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    httpmanager.responseSerializer = [AFJSONResponseSerializer new];
-//    httpmanager.requestSerializer = [AFHTTPRequestSerializer serializer];
-//    httpmanager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    httpmanager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", nil];
-//    [httpmanager POST:url parameters:parmeters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        
-//       
-//        arr = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-//        reData = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableLeaves error:nil];
-//        NSLog(@"reData%@",reData);
-//        
-//         NSLog(@"登录成功%@",arr);
-//        
-//        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-//        [userDefaults setObject:reData[@"first_Invitation_code"] forKey:@"first_Invitation_code"];
-//        [userDefaults setObject:reData[@"Second_Invitation_code"] forKey:@"Second_Invitation_code"];
-//        [userDefaults setObject:reData[@"user_full_name"] forKey:@"user_full_name"];
-//        [userDefaults setObject:reData[@"user_id"] forKey:@"user_id"];
-//        [userDefaults setObject:reData[@"types"] forKey:@"types"];
-//        
-//        [userDefaults synchronize];
-//        
-//        
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"%@",nameStr);
-//        NSLog(@"%@",pwdStr);
-//        NSLog(@"登录失败%@",error);
-//        
-//    }];
-    
-//    [httpmanager GET:url parameters:parmeters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"登录成功%@",responseObject);
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"登录失败%@",error);
-//    }];
+
     
 }
 
