@@ -10,11 +10,9 @@
 #import "NEEnterViewController.h"
 #import <MJRefresh/MJRefresh.h>
 #import "TwoCollectionViewCell.h"
-
 #import "NEStartLiveStreamViewController.h"
-
+#import "NEStartLiveStreamViewController.h"
 #import "NELivePlayerViewController.h"
-
 @interface ZhiViewController ()<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource>{
     
     CGFloat _screenWidth;
