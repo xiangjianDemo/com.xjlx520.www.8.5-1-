@@ -14,6 +14,8 @@
 #import "NEEnterLiveButton.h"
 #import "NEModelLabel.h"
 
+#import "MainTableController.h"
+
 @interface NEStartLiveStreamViewController (){
     LSVideoParaCtx sLSCtx;//现在只是提供设置视频参数
 }
@@ -108,7 +110,10 @@
 }
 
 - (void)cancellLiveStream{
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    //返回UITabBar
+     MainTableController* homeVC = [[MainTableController alloc]init];
+     [self presentViewController:homeVC animated:YES completion:^{}];
 }
 
 - (UIButton *)cancellBtn

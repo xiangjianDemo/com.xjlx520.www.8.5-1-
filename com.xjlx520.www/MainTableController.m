@@ -15,6 +15,7 @@
 #import "FindViewTableViewController.h"
 #import "NewsViewTableViewController.h"
 #import "CenterViewTableViewController.h"
+#import "NEStartLiveStreamViewController.h"
 
 #import "MainNavigationController.h"
 
@@ -64,6 +65,13 @@
     //    消息
     NewsViewTableViewController * notificationVc = [[NewsViewTableViewController alloc] init];
     [self SetupChildVc:notificationVc title:@"朋友" image:@"tab_1_normal" selectedImage:@""];
+    //  增加直播房间
+    NEStartLiveStreamViewController *startLive = [[NEStartLiveStreamViewController alloc] initWithNibName:nil bundle:nil];
+    startLive.pushUrl = @"rtmp://p68821d29.live.126.net/live/cbfa59943264487ab8e614165ce6c01c?wsSecret=ced02391f681db2b9ac1271fb564a6cf&wsTime=1470982510";
+    [startLive setHidesBottomBarWhenPushed:YES];
+    [self SetupChildVc:startLive title:@"你来播" image:@"Zhi1" selectedImage:@""];
+        
+
     //    发现
     FindViewTableViewController * subscriptionVc = [[FindViewTableViewController alloc] init];
     [self SetupChildVc:subscriptionVc title:@"发现" image:@"tab_4_normal" selectedImage:@""];
@@ -94,6 +102,9 @@
     
     
 }
+
+
+
 
 
 

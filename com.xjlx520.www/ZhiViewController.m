@@ -8,9 +8,10 @@
 
 #import "ZhiViewController.h"
 #import "NEEnterViewController.h"
+#import <MJRefresh/MJRefresh.h>
+#import "TwoCollectionViewCell.h"
 
 #import "NEStartLiveStreamViewController.h"
-
 
 #import "NELivePlayerViewController.h"
 
@@ -25,6 +26,7 @@
 @property (nonatomic,strong) UILabel *label;
 @property (nonatomic,strong) UIScrollView *bigScrollView;
 @property (nonatomic,strong) UICollectionView *collectionView;
+@property (nonatomic,strong) UICollectionView *twocollectionView;
 
 @end
 
@@ -33,11 +35,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    //禁止ScrollView因状态栏所偏移。
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationItem.title = @"分类直播";
     [self createBigScrollView];
     [self createScrollView];
     [self addButton];
     [self createCollectionView];
+    [self twocreateCollectionView];
     
     // Do any additional setup after loading the view.
 }
@@ -140,7 +145,7 @@
 
     UIButton *button = [[UIButton alloc]initWithFrame:frame];
     [button setImage:[UIImage imageNamed:@"class"] forState: UIControlStateNormal];
-    [button addTarget:self action:@selector(joinButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+//    [button addTarget:self action:@selector(joinButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [_bigScrollView addSubview:button];
     
     UIButton *button2 = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(button.frame)+20, 0, self.view.frame.size.width/2-10, 120)];
@@ -173,12 +178,12 @@
 //    [self.navigationController pushViewController:vc animated:YES];
 //}
 
-- (void)joinButtonPressed:(id)sender {
-    
-    NEStartLiveStreamViewController *startLive = [[NEStartLiveStreamViewController alloc] initWithNibName:nil bundle:nil];
-    startLive.pushUrl = @"rtmp://p68821d29.live.126.net/live/cbfa59943264487ab8e614165ce6c01c?wsSecret=ced02391f681db2b9ac1271fb564a6cf&wsTime=1470982510";
-    [self presentViewController:startLive animated:YES completion:nil];
-}
+//- (void)joinButtonPressed:(id)sender {
+//    
+//    NEStartLiveStreamViewController *startLive = [[NEStartLiveStreamViewController alloc] initWithNibName:nil bundle:nil];
+//    startLive.pushUrl = @"rtmp://p68821d29.live.126.net/live/cbfa59943264487ab8e614165ce6c01c?wsSecret=ced02391f681db2b9ac1271fb564a6cf&wsTime=1470982510";
+//    [self presentViewController:startLive animated:YES completion:nil];
+//}
 
 - (void)playButtonPressed:(id)sender {
     
@@ -192,6 +197,71 @@
     livePlayerVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:livePlayerVC animated:YES completion:nil];
     
+}
+
+//创建第二页的竖向滚动视图:
+- (void)twocreateCollectionView {
+    CGRect frame = CGRectMake(self.view.frame.size.width,0, self.view.frame.size.width,CGRectGetHeight(_bigScrollView.frame)-64);
+    _twocollectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:[self createLayout]];
+    _twocollectionView.bounces = YES;
+    _twocollectionView.dataSource = self;
+    _twocollectionView.delegate = self;
+    
+    _twocollectionView.backgroundColor = [UIColor whiteColor];
+    [_twocollectionView registerClass:[TwoCollectionViewCell class] forCellWithReuseIdentifier:@"cellId"];
+    [_bigScrollView addSubview:_twocollectionView];
+    
+//    MJRefreshNormalHeader *refreshHeader =[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        [self twocreateCollectionView];
+//    }];
+//    _twocollectionView.mj_header = refreshHeader;
+//    MJRefreshBackNormalFooter *refreshFooter = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+//        [self twocreateCollectionView];
+//    }];
+//    _twocollectionView.mj_footer = refreshFooter;
+//    [refreshHeader beginRefreshing];
+}
+
+- (UICollectionViewLayout *)createLayout
+{
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    //最小行间距：
+    layout.minimumLineSpacing = 10;
+    //item尺寸：
+    layout.itemSize = CGSizeMake((CGRectGetWidth(self.view.frame)-30)/2,(CGRectGetWidth(self.view.frame)-30)*4/7);
+    //四周边界：
+    layout.sectionInset = UIEdgeInsetsMake(10,10,10,10);
+    return layout;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+
+    return 20;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+
+    TwoCollectionViewCell *cell1 = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellId" forIndexPath:indexPath];
+    //cell1.layer.shadowOffset =CGSizeMake(2, 2);
+    cell1.layer.shadowRadius = 2;
+    //cell1.layer.shadowOpacity = 0.5;
+    cell1.backgroundColor = [UIColor whiteColor];
+    cell1.userInteractionEnabled = YES;
+    return cell1;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+
+    NSURL *url = [[NSURL alloc] initWithString:@"http://pullhls68821d29.live.126.net/live/cbfa59943264487ab8e614165ce6c01c/playlist.m3u8"];
+    
+    NSMutableArray *decodeParm = [[NSMutableArray alloc] init];
+    [decodeParm addObject:@"software"];
+    [decodeParm addObject:@"livestream"];
+    
+    NELivePlayerViewController *livePlayerVC = [[NELivePlayerViewController alloc] initWithURL:url andDecodeParm:decodeParm];
+    livePlayerVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:livePlayerVC animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

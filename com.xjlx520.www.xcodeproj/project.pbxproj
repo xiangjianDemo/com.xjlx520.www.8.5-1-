@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18AF2E571D6420C2000B9C57 /* 3h.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AF2E561D6420C2000B9C57 /* 3h.png */; };
+		18AF2E5A1D642245000B9C57 /* ZhiBo.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AF2E581D642245000B9C57 /* ZhiBo.png */; };
+		18AF2E5B1D642245000B9C57 /* Zhi1.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AF2E591D642245000B9C57 /* Zhi1.png */; };
 		18B43E1E1D5C66DE008EAE27 /* ico_make.png in Resources */ = {isa = PBXBuildFile; fileRef = 18B43E1B1D5C66DE008EAE27 /* ico_make.png */; };
 		18B43E1F1D5C66DE008EAE27 /* JSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B43E1D1D5C66DE008EAE27 /* JSDropDownMenu.m */; };
 		18B43E231D5C6B9E008EAE27 /* ZhiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B43E221D5C6B9E008EAE27 /* ZhiViewController.m */; };
@@ -61,6 +64,7 @@
 		18B43F571D5C7322008EAE27 /* libswscale.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B43F331D5C7322008EAE27 /* libswscale.a */; };
 		18B43F581D5C7322008EAE27 /* libyuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18B43F341D5C7322008EAE27 /* libyuv.a */; };
 		18B43F591D5C7322008EAE27 /* LSMediaCapture.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18B43F351D5C7322008EAE27 /* LSMediaCapture.bundle */; };
+		18C90E681D63019F00697A43 /* TwoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C90E671D63019F00697A43 /* TwoCollectionViewCell.m */; };
 		8C225E465CC6263BACCC1C7E /* libPods-com.xjlx520.www.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F67036E10DC6925246882E /* libPods-com.xjlx520.www.a */; };
 		C404CEF01D45F31400BDB0B9 /* Net1.m in Sources */ = {isa = PBXBuildFile; fileRef = C404CEEF1D45F31400BDB0B9 /* Net1.m */; };
 		C407B4B61D3CAB2000AD4835 /* DrowLineThreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C407B4B51D3CAB2000AD4835 /* DrowLineThreeView.m */; };
@@ -150,6 +154,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18AF2E561D6420C2000B9C57 /* 3h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3h.png; sourceTree = "<group>"; };
+		18AF2E581D642245000B9C57 /* ZhiBo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZhiBo.png; sourceTree = "<group>"; };
+		18AF2E591D642245000B9C57 /* Zhi1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zhi1.png; sourceTree = "<group>"; };
 		18B43E1B1D5C66DE008EAE27 /* ico_make.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_make.png; path = "JSDropDownMenu副本/ico_make.png"; sourceTree = SOURCE_ROOT; };
 		18B43E1C1D5C66DE008EAE27 /* JSDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSDropDownMenu.h; path = "JSDropDownMenu副本/JSDropDownMenu.h"; sourceTree = SOURCE_ROOT; };
 		18B43E1D1D5C66DE008EAE27 /* JSDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSDropDownMenu.m; path = "JSDropDownMenu副本/JSDropDownMenu.m"; sourceTree = SOURCE_ROOT; };
@@ -397,6 +404,8 @@
 		18B43F361D5C7322008EAE27 /* LSMediaCapture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSMediaCapture.h; sourceTree = "<group>"; };
 		18B43F371D5C7322008EAE27 /* nMediaLiveStreamingDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nMediaLiveStreamingDefs.h; sourceTree = "<group>"; };
 		18B43F621D5C80A8008EAE27 /* NTESGlobalMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NTESGlobalMacro.h; sourceTree = "<group>"; };
+		18C90E661D63019F00697A43 /* TwoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoCollectionViewCell.h; sourceTree = "<group>"; };
+		18C90E671D63019F00697A43 /* TwoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoCollectionViewCell.m; sourceTree = "<group>"; };
 		5A911A8CD745030F7C3B0E99 /* Pods-com.xjlx520.www.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.xjlx520.www.debug.xcconfig"; path = "Pods/Target Support Files/Pods-com.xjlx520.www/Pods-com.xjlx520.www.debug.xcconfig"; sourceTree = "<group>"; };
 		C404CEEE1D45F31400BDB0B9 /* Net1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Net1.h; sourceTree = "<group>"; };
 		C404CEEF1D45F31400BDB0B9 /* Net1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Net1.m; sourceTree = "<group>"; };
@@ -943,6 +952,15 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		18C90E651D63011200697A43 /* TVClass */ = {
+			isa = PBXGroup;
+			children = (
+				18C90E661D63019F00697A43 /* TwoCollectionViewCell.h */,
+				18C90E671D63019F00697A43 /* TwoCollectionViewCell.m */,
+			);
+			name = TVClass;
+			sourceTree = "<group>";
+		};
 		1DB4066B281D1C1D700178A1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1000,6 +1018,9 @@
 		C4D9150A1D52E90B00600BD5 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				18AF2E561D6420C2000B9C57 /* 3h.png */,
+				18AF2E581D642245000B9C57 /* ZhiBo.png */,
+				18AF2E591D642245000B9C57 /* Zhi1.png */,
 				C41555BD1D34F1CD009316D4 /* wo.png */,
 				C4DBA6A01D48C09A000EBF10 /* push.png */,
 				C41C8B081D49EC6D005FF1ED /* XJian.png */,
@@ -1147,6 +1168,7 @@
 		C4EFD5231D0FE785000CD0FA /* homecontroller */ = {
 			isa = PBXGroup;
 			children = (
+				18C90E651D63011200697A43 /* TVClass */,
 				18B43E201D5C67D3008EAE27 /* TV */,
 				C4F3626F1D12A9170003CFC2 /* SDCycleScrollView */,
 				C4EFD4D71D0FAB0D000CD0FA /* HomeViewController.h */,
@@ -1458,6 +1480,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18AF2E5B1D642245000B9C57 /* Zhi1.png in Resources */,
+				18AF2E571D6420C2000B9C57 /* 3h.png in Resources */,
 				C4F3628D1D12AD5D0003CFC2 /* image0.png in Resources */,
 				18B43E4A1D5C7311008EAE27 /* lovest.wav in Resources */,
 				C4D9150F1D52EA3100600BD5 /* tab_0_normal.png in Resources */,
@@ -1465,6 +1489,7 @@
 				18B43E1E1D5C66DE008EAE27 /* ico_make.png in Resources */,
 				C4DBA6A11D48C09A000EBF10 /* push.png in Resources */,
 				C4D915121D52EA3100600BD5 /* tab_4_normal.png in Resources */,
+				18AF2E5A1D642245000B9C57 /* ZhiBo.png in Resources */,
 				C41C8B0E1D49EC6D005FF1ED /* Life.png in Resources */,
 				18B43F591D5C7322008EAE27 /* LSMediaCapture.bundle in Resources */,
 				18B43E491D5C7311008EAE27 /* lovest.mp3 in Resources */,
@@ -1609,6 +1634,7 @@
 				C4D9C5211D406EED00EAB8C5 /* Net.m in Sources */,
 				C423DB961D62B7F10059AFF9 /* CenterViewTableViewController.m in Sources */,
 				C4F362811D12A9170003CFC2 /* NSData+SDDataCache.m in Sources */,
+				18C90E681D63019F00697A43 /* TwoCollectionViewCell.m in Sources */,
 				C423DB931D62B7A90059AFF9 /* RegisterViewController.m in Sources */,
 				C407B4C31D3CC1EF00AD4835 /* RollingAdvertisingTableViewController.m in Sources */,
 				C4103BEC1D112DC700CECC1B /* myTabBar.m in Sources */,
