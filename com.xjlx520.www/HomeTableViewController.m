@@ -181,7 +181,7 @@ static NSString *const collectionCellID = @"homeCollectionViewCell";
     if (indexPath.section == 0) {
         return [UIScreen mainScreen].bounds.size.height/4;
     }if (indexPath.section == 1) {
-        return 2*kScreenWidth/6+80;
+        return 2*kScreenWidth/5+kScreenWidth/37.7*4;
     }if (indexPath.section == 2) {
         return [UIScreen mainScreen].bounds.size.height/10;
     }
@@ -249,13 +249,13 @@ static NSString *const collectionCellID = @"homeCollectionViewCell";
             UICollectionViewFlowLayout * flowLayout =[[UICollectionViewFlowLayout alloc] init];
             
             [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-            UIEdgeInsets top = {25,30,25,30};
+            UIEdgeInsets top = {kScreenWidth/2/4/3.4,kScteenHeight/66.7*2.5,kScreenWidth/37.7,kScteenHeight/66.7*3};
             flowLayout.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width/3, [UIScreen mainScreen].bounds.size.width/3);
             
             [flowLayout setSectionInset:top];
             
             //                    单元格
-            UICollectionView * collectionView =[[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 2*kScreenWidth/6+80)collectionViewLayout:flowLayout];
+            UICollectionView * collectionView =[[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 2*kScreenWidth/5+kScreenWidth/37.7*4)collectionViewLayout:flowLayout];
             
             collectionView.backgroundColor=[UIColor clearColor];
             
@@ -270,7 +270,7 @@ static NSString *const collectionCellID = @"homeCollectionViewCell";
 //            画线
             DrawLineView *line = [[DrawLineView alloc]init];
             line.backgroundColor = [UIColor clearColor];
-            line.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height/4);
+            line.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height/4 + kScreenWidth/37.7*2);
             
             
             //    折线1
@@ -407,10 +407,17 @@ static NSString *const collectionCellID = @"homeCollectionViewCell";
 // 设置cell的内容
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
      homeCollectionViewCell *cell1 = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellID forIndexPath:indexPath];
+    
+    cell1.backgroundColor = [UIColor clearColor];
     NSString *httpUrl = @"http://219.151.12.30:8081";
     NSString *url = [[NSString alloc]initWithFormat:@"%@%@",httpUrl,classAdsArr[indexPath.row][@"lx_picture"]];
     [cell1.img sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"wo.png"]];
+    
     cell1.label1.text = [classAdsArr[indexPath.row]objectForKey:@"lx_name"];
+    
+    
+    
+    
     return cell1;
    }
 
@@ -418,7 +425,7 @@ static NSString *const collectionCellID = @"homeCollectionViewCell";
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
   
-    return CGSizeMake(kScreenWidth/5,kScreenWidth/6);
+    return CGSizeMake(kScreenWidth/5,kScreenWidth/5);
     
 }
 //UICollectionView被选中时调用的方法
