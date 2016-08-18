@@ -8,6 +8,7 @@
 
 #import "RegisterViewController.h"
 #import "TheAFNetWorking.h"
+#import "YXPMBProgressView.h"
 @interface RegisterViewController ()<UITextFieldDelegate>
 @property(nonatomic,strong)UITextField *tellText;
 @property(nonatomic,strong)UITextField *passWorldText;
@@ -72,23 +73,39 @@
         return YES;
     }
     
+    if (_tellText.text.length!=11) {
+        [YXPMBProgressView ProgressHUDText:@"手机号输入错误" andShowTime:2];
+        return NO;
+    }
+    
+    if (![_passWorldText.text isEqualToString:_passWorldText2.text]) {
+              [YXPMBProgressView ProgressHUDText:@"两次输入的密码不一致" andShowTime:2];
+        return NO;
+    }
     return NO;
 }
 
 - (void)action:(UIButton *)sender{
 //    NSString *url =   [TheAFNetWorking  httpURLStr:@"admin/webapi/lx_users.ashx?flag=users_add"];
+    if ([self isCanRegister]==YES) {
+        [self postRegister];
+    }else{
+        
+    }
+    
+  }
+-(void)postRegister{
     NSString *url = @"http://219.151.12.30:8081/admin/webapi/lx_users.ashx?flag=users_add";
-  NSDictionary *dic1 = @{@"user_full_name":_tellText.text,@"user_password":_passWorldText.text,@"user_Age":@"0",@"user_sex":@"0",@"user_Income_range":@"0",@"education":@"0",@"Advertising_interest":@"0",@"phone":@"0",@"user_Invitation_code":@"0",@"lx_region":@"0",@"lx_city":@"0",@"Types":@"0",@"user_address":@"0",@"lx_picture":@"0"};
+    NSDictionary *dic1 = @{@"user_full_name":_tellText.text,@"user_password":_passWorldText.text,@"user_Age":@"0",@"user_sex":@"0",@"user_Income_range":@"0",@"education":@"0",@"Advertising_interest":@"0",@"phone":@"0",@"user_Invitation_code":@"0",@"lx_region":@"0",@"lx_city":@"0",@"Types":@"0",@"user_address":@"0",@"lx_picture":@"0"};
     NSLog(@"%@",url);
     
     
-[TheAFNetWorking postHttpsURL:url parameters:dic1 AndSuccess:^(NSArray *dic) {
-    NSLog(@"%@",dic);
-} orfailure:^{
-    
-} showHUD:YES];
-    
-  }
+    [TheAFNetWorking postHttpsURL:url parameters:dic1 AndSuccess:^(NSArray *dic) {
+        NSLog(@"%@",dic);
+    } orfailure:^{
+        
+    } showHUD:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
