@@ -181,7 +181,7 @@ static NSString *const collectionCellID = @"homeCollectionViewCell";
     if (indexPath.section == 0) {
         return [UIScreen mainScreen].bounds.size.height/4;
     }if (indexPath.section == 1) {
-        return 2*kScreenWidth/5+10;
+        return 2*kScreenWidth/6+80;
     }if (indexPath.section == 2) {
         return [UIScreen mainScreen].bounds.size.height/10;
     }
@@ -249,13 +249,13 @@ static NSString *const collectionCellID = @"homeCollectionViewCell";
             UICollectionViewFlowLayout * flowLayout =[[UICollectionViewFlowLayout alloc] init];
             
             [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-            UIEdgeInsets top = {25,25,30,20};
-            flowLayout.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width/4, [UIScreen mainScreen].bounds.size.width/4);
+            UIEdgeInsets top = {25,30,25,30};
+            flowLayout.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width/3, [UIScreen mainScreen].bounds.size.width/3);
             
             [flowLayout setSectionInset:top];
             
             //                    单元格
-            UICollectionView * collectionView =[[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [UIScreen mainScreen].bounds.size.height/4-5)collectionViewLayout:flowLayout];
+            UICollectionView * collectionView =[[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 2*kScreenWidth/6+80)collectionViewLayout:flowLayout];
             
             collectionView.backgroundColor=[UIColor clearColor];
             
@@ -418,7 +418,7 @@ static NSString *const collectionCellID = @"homeCollectionViewCell";
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
   
-    return CGSizeMake(kScreenWidth/5,kScreenWidth/5);
+    return CGSizeMake(kScreenWidth/5,kScreenWidth/6);
     
 }
 //UICollectionView被选中时调用的方法

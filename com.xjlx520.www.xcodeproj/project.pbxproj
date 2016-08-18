@@ -93,6 +93,7 @@
 		C44AEE371D389BD400F75CD2 /* CFLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = C44AEE361D389BD400F75CD2 /* CFLineChartView.m */; };
 		C44AEE3A1D38F4CC00F75CD2 /* PushTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C44AEE391D38F4CC00F75CD2 /* PushTableViewCell.m */; };
 		C49D03DE1D59B9D70026852B /* ClassiFactionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C49D03DD1D59B9D70026852B /* ClassiFactionModel.m */; };
+		C4A6CDEF1D656C0700D89802 /* ClassCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A6CDEE1D656C0700D89802 /* ClassCollectionViewCell.m */; };
 		C4A72FBC1D4E129B00FC5C51 /* ConditionDoubleTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A72FB61D4E129B00FC5C51 /* ConditionDoubleTableView.m */; };
 		C4A72FBD1D4E129B00FC5C51 /* DropdownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A72FB81D4E129B00FC5C51 /* DropdownButton.m */; };
 		C4A72FBE1D4E129B00FC5C51 /* DropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A72FBA1D4E129B00FC5C51 /* DropdownMenu.m */; };
@@ -457,6 +458,8 @@
 		C44AEE391D38F4CC00F75CD2 /* PushTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushTableViewCell.m; sourceTree = "<group>"; };
 		C49D03DC1D59B9D70026852B /* ClassiFactionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassiFactionModel.h; sourceTree = "<group>"; };
 		C49D03DD1D59B9D70026852B /* ClassiFactionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassiFactionModel.m; sourceTree = "<group>"; };
+		C4A6CDED1D656C0700D89802 /* ClassCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassCollectionViewCell.h; sourceTree = "<group>"; };
+		C4A6CDEE1D656C0700D89802 /* ClassCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassCollectionViewCell.m; sourceTree = "<group>"; };
 		C4A72FB41D4E129B00FC5C51 /* CommonDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonDefine.h; sourceTree = "<group>"; };
 		C4A72FB51D4E129B00FC5C51 /* ConditionDoubleTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionDoubleTableView.h; sourceTree = "<group>"; };
 		C4A72FB61D4E129B00FC5C51 /* ConditionDoubleTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionDoubleTableView.m; sourceTree = "<group>"; };
@@ -1219,6 +1222,8 @@
 				C4DBA69D1D484F11000EBF10 /* ClassAdsDetailTableViewController.m */,
 				C407B4C41D3CC21600AD4835 /* PushAdvertisingTableViewController.h */,
 				C407B4C51D3CC21600AD4835 /* PushAdvertisingTableViewController.m */,
+				C4A6CDED1D656C0700D89802 /* ClassCollectionViewCell.h */,
+				C4A6CDEE1D656C0700D89802 /* ClassCollectionViewCell.m */,
 				6D46CC0F1D655B25002B3B29 /* homeCollectionViewCell.h */,
 				6D46CC101D655B25002B3B29 /* homeCollectionViewCell.m */,
 				6D46CC111D655B25002B3B29 /* homeCollectionViewCell.xib */,
@@ -1636,6 +1641,7 @@
 				18B43F421D5C7322008EAE27 /* NEFilterScrollView.m in Sources */,
 				C407B4BC1D3CB2EE00AD4835 /* NewsViewTableViewController.m in Sources */,
 				C4EFD50F1D0FAF02000CD0FA /* CenterViewController.m in Sources */,
+				C4A6CDEF1D656C0700D89802 /* ClassCollectionViewCell.m in Sources */,
 				18B43F3D1D5C7322008EAE27 /* NEAudioModelBtn.m in Sources */,
 				C407B4C61D3CC21600AD4835 /* PushAdvertisingTableViewController.m in Sources */,
 				C423DB901D62B7470059AFF9 /* Content_TableViewCell.m in Sources */,
