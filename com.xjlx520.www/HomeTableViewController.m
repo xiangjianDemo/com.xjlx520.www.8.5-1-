@@ -67,6 +67,11 @@ static NSString *const collectionCellID = @"homeCollectionViewCell";
 //    [self postClassAdsdata];
     [self postRollAdsData];
 //    [self postAdsPage];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *name = [userDefaults valueForKey:@"nice"];
+    
+    NSLog(@"//////%@",name);
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -222,7 +227,7 @@ static NSString *const collectionCellID = @"homeCollectionViewCell";
             for (int i = 0; i < rollAdsArr.count; i++) {
                 NSString *url = [[NSString alloc]initWithFormat:@"%@%@",httpUrl,rollAdsArr[i][@"lx_picture"]];
                 [imagesURLDtring addObject:url];
-                NSLog(@"图片地址：%@",imagesURLDtring);
+//                NSLog(@"图片地址：%@",imagesURLDtring);
             }
             
             cycleScrollView1.imageURLStringsGroup = imagesURLDtring;

@@ -28,7 +28,8 @@
     UIButton *button1;
     UIButton *button2;
     
-    
+    NSString *adver;
+    NSDictionary *dicArr;
 }
 @end
 
@@ -79,14 +80,7 @@
         
         [self.view addSubview:loginButton];
     }
-//    UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//    loginButton.frame = CGRectMake(kScreenWidth/3, kScteenHeight/2.1, [UIScreen mainScreen].bounds.size.width-kScreenWidth/3*2, kScteenHeight/15);
-//    loginButton.backgroundColor = [UIColor greenColor];
-//    [loginButton setTitle:@"登录" forState:UIControlStateNormal];
-//    [loginButton addTarget:self action:@selector(action:) forControlEvents:UIControlEventTouchUpInside];
-//    loginButton.tag = 20;
-//    
-//    [self.view addSubview:loginButton];
+
     
 //    保存用户输入的 用户名和密码
     NSUserDefaults *UserDefaults = [NSUserDefaults standardUserDefaults];
@@ -114,15 +108,10 @@
     
     switch (sender.tag) {
         case 20:
-            if (userName) {
-                if (pwdStr) {
+        {
+            
                     [self loginRequestData];
-                }else{
-                    
-                }
-            }else{
-                
-            }
+        }
             break;
         
         case 21:
@@ -140,16 +129,51 @@
 
 // 登录请求
 - (void)loginRequestData{
-    
-    NSString *url = @"admin/webapi/Handler.ashx?flag=denglu";
-    
-    NSDictionary *parmeters = @{@"phone":nameStr,@"user_password":pwdStr};
-    
-    [TheAFNetWorking postHttpsURL:url parameters:parmeters AndSuccess:^(NSArray *dic) {
+    if (nameStr.length) {
+        if (pwdStr.length) {
+            NSString *url = [TheAFNetWorking httpURLStr:@"admin/webapi/Handler.ashx?flag=dengluget"];
+            
+            NSDictionary *parmeters = @{@"phone":nameStr,@"user_password":pwdStr};
+            
+//            [TheAFNetWorking postHttpsURL:url parameters:parmeters AndSuccess:^(NSArray *dic) {
+//                
+//            } orfailure:^{
+//                
+//            } showHUD:YES];
+            
+            [TheAFNetWorking getHttpsURL:url parameters:parmeters AndSuccess:^(NSArray *dic) {
+                NSLog(@"登录成功%@",dic);
+                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                [userDefaults setObject:nameStr forKey:@"nameStr"];
+                [userDefaults setObject:pwdStr forKey:@"pwdStr"];
+                
+                [userDefaults setObject:dic[0][@"Advertising_interest"] forKey:@"hello"];
+                
+                for (int i = 0; i < dic.count; i++) {
+                    
+                   dicArr = [[NSDictionary alloc]init];
+                    dicArr = dic[i];
+                    NSLog(@"%@",dicArr);
+                }
+                
+                [userDefaults setObject:dicArr[@"Advertising_interest"] forKey:@"nice"];
+                
+                
+                [userDefaults synchronize];
+            } orfailure:^{
+                NSLog(@"fail");
+            } showHUD:YES];
+        }else{
+            
+            NSLog(@"hello word");
         
-    } orfailure:^{
+        }
+    }else{
         
-    } showHUD:YES];
+        NSLog(@"nice meimei");
+        
+    }
+    
     
 
     

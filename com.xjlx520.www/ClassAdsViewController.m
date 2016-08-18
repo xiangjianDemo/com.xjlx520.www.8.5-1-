@@ -250,40 +250,7 @@
     } showHUD:YES];
     
     
-   /* [TheAFNetWorking postHttpsURL:url parameters:dicc AndSuccess:^(NSArray *dic) {
-        NSLog(@"显示分类广告：%@",classArrayData);
-    } orfailure:^{
-        NSLog(@"分类广告请求失败");
-    } showHUD:YES];*/
-//    AFHTTPRequestOperationManager *httpmanager = [AFHTTPRequestOperationManager manager];
-//    httpmanager.requestSerializer = [AFJSONRequestSerializer serializer];
-//    httpmanager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    httpmanager.responseSerializer = [AFJSONResponseSerializer new];
-//    httpmanager.requestSerializer = [AFHTTPRequestSerializer serializer];
-//    httpmanager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    httpmanager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", nil];
-//    
-////    [httpmanager POST:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-////        NSLog(@"显示分类广告：%@",responseObject);
-////    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-////        NSLog(@"显示分类广告错误：%@",error);
-////    }];
-//    
-//    [httpmanager GET:url parameters:dicc success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        
-//        
-////        NSString *resonseString = [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
-//        
-//        classArrayData = [NSMutableArray array];
-//        [classArrayData addObject:responseObject];
-//        classArrayData = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-//        [self.tableView reloadData];
-//        NSLog(@"显示分类广告：%@",classArrayData);
-//        
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"显示分类广告错误：%@",error);
-//
-//    }];
+ 
 }
 
 
@@ -294,18 +261,12 @@
     
     [TheAFNetWorking getHttpsURL:url parameters:paramers AndSuccess:^(NSArray *dic) {
         NSLog(@"推荐分类请求成功：%@",dic);
+        classArray = dic;
     } orfailure:^{
         NSLog(@"推荐分类请求失败");
     } showHUD:YES];
     
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    [manager GET:url parameters:paramers success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"分类推荐广告：%@",responseObject);
-//        classArray = responseObject;
-//        NSLog(@"%@",classArray);
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"推荐广告请求失败：%@",error);
-//    }];
+
 }
 // 请求分级数据
 - (void)postClassificationData{
@@ -433,7 +394,7 @@
             NSString *url = [[NSString alloc]initWithFormat:@"%@%@",httpUrl,classArray[i][@"lx_picture"]];
             
 //                      [imageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil];
-            [imageView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@""]];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"hongbao"]];
             
             [view addSubview:imageView];
             

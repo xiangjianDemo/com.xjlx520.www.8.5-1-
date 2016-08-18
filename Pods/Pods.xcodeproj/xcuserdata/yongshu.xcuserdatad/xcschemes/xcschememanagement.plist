@@ -11,6 +11,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>IQKeyboardManager.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -48,6 +53,11 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>8</integer>
+		</dict>
+		<key>VTMagic.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
 		</dict>
 		<key>YYModel.xcscheme</key>
 		<dict>
@@ -99,6 +109,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>4673693AF9CD1B7EACBE14C2246CF1C3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>5215C1069890E52DE5BC7AEDFCBD9CAD</key>
 		<dict>
 			<key>primary</key>
@@ -110,6 +125,21 @@
 			<true/>
 		</dict>
 		<key>5A1ECC01BD2791D9D00C0483E9EA724B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5C06D2B2801F4FA38A905204C75A4F7E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>63F2F03C47804EE079CBAC84C621AFB2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6986A07F9E021AF36688AB1E7FB406C8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -129,12 +159,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>90F30AB79FBFF754314D4F312F99890B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>928353533005A4198EBDA5B700D37B64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>A5EC78A42F1335ADA4FEE7B02E26ED56</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B072A1C8F1D38030B4DD3D8603DA87ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -149,7 +189,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>D0D0C9D20C43FA94D4C88FBFE2601B8E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D5098FD3C470AFCEB7FAD9DAA3696223</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E0D89A889A32307CE11A64E99C43106C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

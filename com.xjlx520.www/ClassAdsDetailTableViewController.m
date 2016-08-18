@@ -66,42 +66,13 @@
                 classArrayData = [NSArray array];
 //                [classArrayData addObject:dic];
         classArrayData = dic;
-//                classArrayData = [NSJSONSerialization JSONObjectWithData:dic options:NSJSONReadingMutableContainers error:nil];
+//        NSLog(@"广告详情%@",classArrayData);
                 [self.tableView reloadData];
 
     } orfailure:^{
         
     } showHUD:YES];
-//    
-//    AFHTTPRequestOperationManager *httpmanager = [AFHTTPRequestOperationManager manager];
-//    httpmanager.requestSerializer = [AFJSONRequestSerializer serializer];
-//    httpmanager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    httpmanager.responseSerializer = [AFJSONResponseSerializer new];
-//    httpmanager.requestSerializer = [AFHTTPRequestSerializer serializer];
-//    httpmanager.responseSerializer = [AFHTTPResponseSerializer serializer];
-//    httpmanager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", nil];
-//    
-//    //    [httpmanager POST:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//    //        NSLog(@"显示分类广告：%@",responseObject);
-//    //    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//    //        NSLog(@"显示分类广告错误：%@",error);
-//    //    }];
-//    
-//    [httpmanager GET:url parameters:dicc success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        
-//        
-//        //        NSString *resonseString = [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding];
-//        
-//        classArrayData = [NSMutableArray array];
-//        [classArrayData addObject:responseObject];
-//        classArrayData = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-//        [self.tableView reloadData];
-//        NSLog(@"广告详细页面：%@",classArrayData);
-//        
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"广告详细页面错误：%@",error);
-//        
-//    }];
+
 }
 
 - (void)showAlertWithMessage:(NSString *)message{
