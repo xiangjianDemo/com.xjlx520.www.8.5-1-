@@ -10,6 +10,7 @@
 #import "NEEnterViewController.h"
 #import <MJRefresh/MJRefresh.h>
 #import "TwoCollectionViewCell.h"
+#import "FourCollectionViewCell.h"
 #import "NEStartLiveStreamViewController.h"
 #import "NEStartLiveStreamViewController.h"
 #import "NELivePlayerViewController.h"
@@ -25,6 +26,8 @@
 @property (nonatomic,strong) UIScrollView *bigScrollView;
 @property (nonatomic,strong) UICollectionView *collectionView;
 @property (nonatomic,strong) UICollectionView *twocollectionView;
+@property (nonatomic,strong) UICollectionView *fourcollectionView;
+
 
 @end
 
@@ -41,7 +44,8 @@
     [self addButton];
     [self createCollectionView];
     [self twocreateCollectionView];
-    
+    [self threecreateCollectionView];
+    [self fourcreateCollectionView];
     // Do any additional setup after loading the view.
 }
 
@@ -97,6 +101,7 @@
 - (void)addButton{
     
     _nameArray = @[@"热门",@"关注",@"频道",@"同城"];
+
     _screenWidth = self.view.frame.size.width/4;
     for (int i = 0; i < _nameArray.count; i++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -150,7 +155,7 @@
     [button2 setImage:[UIImage imageNamed:@"XJian"] forState:UIControlStateNormal];
     [button2 addTarget:self action:@selector(playButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [_bigScrollView addSubview:button2];
-    
+    NSLog(@"1");
 //    UIView *view1 = [[UIView alloc]initWithFrame:frame];
 //
 //    view1.backgroundColor = [UIColor greenColor];
@@ -200,7 +205,7 @@
 //创建第二页的竖向滚动视图:
 - (void)twocreateCollectionView {
     CGRect frame = CGRectMake(self.view.frame.size.width,0, self.view.frame.size.width,CGRectGetHeight(_bigScrollView.frame)-64);
-    _twocollectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:[self createLayout]];
+    _twocollectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:[self twocreateLayout]];
     _twocollectionView.bounces = YES;
     _twocollectionView.dataSource = self;
     _twocollectionView.delegate = self;
@@ -218,10 +223,12 @@
 //    }];
 //    _twocollectionView.mj_footer = refreshFooter;
 //    [refreshHeader beginRefreshing];
+    NSLog(@"2");
 }
-
-- (UICollectionViewLayout *)createLayout
+/***********************第二页collectionView*******************************/
+- (UICollectionViewLayout *)twocreateLayout
 {
+   
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     //最小行间距：
     layout.minimumLineSpacing = 10;
@@ -234,19 +241,30 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
 
-    return 20;
+    if (collectionView == _twocollectionView) {
+        return 20;
+    }
+    return 10;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-
-    TwoCollectionViewCell *cell1 = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellId" forIndexPath:indexPath];
+    if (collectionView == _twocollectionView) {
+        TwoCollectionViewCell *cell1 = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellId" forIndexPath:indexPath];
+        //cell1.layer.shadowOffset =CGSizeMake(2, 2);
+        cell1.layer.shadowRadius = 2;
+        //cell1.layer.shadowOpacity = 0.5;
+        cell1.backgroundColor = [UIColor whiteColor];
+        cell1.userInteractionEnabled = YES;
+        return cell1;
+    }
+    TwoCollectionViewCell *cell2 = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellIId" forIndexPath:indexPath];
     //cell1.layer.shadowOffset =CGSizeMake(2, 2);
-    cell1.layer.shadowRadius = 2;
+    cell2.layer.shadowRadius = 2;
     //cell1.layer.shadowOpacity = 0.5;
-    cell1.backgroundColor = [UIColor whiteColor];
-    cell1.userInteractionEnabled = YES;
-    return cell1;
+    cell2.backgroundColor = [UIColor whiteColor];
+    cell2.userInteractionEnabled = YES;
+    return cell2;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -260,6 +278,59 @@
     NELivePlayerViewController *livePlayerVC = [[NELivePlayerViewController alloc] initWithURL:url andDecodeParm:decodeParm];
     livePlayerVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:livePlayerVC animated:YES completion:nil];
+}
+
+//创建第三页的竖向滚动视图:
+- (void)threecreateCollectionView {
+    CGRect frame = CGRectMake((self.view.frame.size.width)*2,0, self.view.frame.size.width/2-10,120);
+    UIButton *button = [[UIButton alloc]initWithFrame:frame];
+    [button setImage:[UIImage imageNamed:@"class"] forState: UIControlStateNormal];
+    //    [button addTarget:self action:@selector(joinButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_bigScrollView addSubview:button];
+    
+    UIButton *button2 = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(button.frame)+20, 0, self.view.frame.size.width/2-10, 120)];
+    [button2 setImage:[UIImage imageNamed:@"XJian"] forState:UIControlStateNormal];
+    [button2 addTarget:self action:@selector(playButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_bigScrollView addSubview:button2];
+    NSLog(@"3");
+}
+
+//创建第四页的竖向滚动视图:
+- (void)fourcreateCollectionView {
+    CGRect frame = CGRectMake(self.view.frame.size.width*3,0, self.view.frame.size.width,CGRectGetHeight(_bigScrollView.frame)-64);
+    _fourcollectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:[self fourcreateLayout]];
+    _fourcollectionView.bounces = YES;
+    _fourcollectionView.dataSource = self;
+    _fourcollectionView.delegate = self;
+    
+    _fourcollectionView.backgroundColor = [UIColor whiteColor];
+    [_fourcollectionView registerClass:[FourCollectionViewCell class] forCellWithReuseIdentifier:@"cellIId"];
+    [_bigScrollView addSubview:_fourcollectionView];
+    
+    //    MJRefreshNormalHeader *refreshHeader =[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    //        [self twocreateCollectionView];
+    //    }];
+    //    _twocollectionView.mj_header = refreshHeader;
+    //    MJRefreshBackNormalFooter *refreshFooter = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+    //        [self twocreateCollectionView];
+    //    }];
+    //    _twocollectionView.mj_footer = refreshFooter;
+    //    [refreshHeader beginRefreshing];
+    NSLog(@"4");
+}
+/***********************第四页collectionView*******************************/
+- (UICollectionViewLayout *)fourcreateLayout
+{
+    
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    //最小行间距：
+    layout.minimumLineSpacing = 30;
+    //item尺寸：
+    layout.itemSize = CGSizeMake((CGRectGetWidth(self.view.frame)),(CGRectGetWidth(self.view.frame)));
+    //四周边界：
+    layout.sectionInset = UIEdgeInsetsMake(10,10,10,10);
+//    layout.sectionInset = UIEdgeInsetsMake(10,10,10,10);
+    return layout;
 }
 
 - (void)didReceiveMemoryWarning {

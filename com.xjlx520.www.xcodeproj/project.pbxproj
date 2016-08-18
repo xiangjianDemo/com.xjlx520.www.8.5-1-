@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18AAF3431D65A5BE00FF310E /* FourCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AAF3421D65A5BE00FF310E /* FourCollectionViewCell.m */; };
 		18AF2E571D6420C2000B9C57 /* 3h.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AF2E561D6420C2000B9C57 /* 3h.png */; };
 		18AF2E5A1D642245000B9C57 /* ZhiBo.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AF2E581D642245000B9C57 /* ZhiBo.png */; };
 		18AF2E5B1D642245000B9C57 /* Zhi1.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AF2E591D642245000B9C57 /* Zhi1.png */; };
@@ -158,6 +159,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18AAF3411D65A5BE00FF310E /* FourCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourCollectionViewCell.h; sourceTree = "<group>"; };
+		18AAF3421D65A5BE00FF310E /* FourCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourCollectionViewCell.m; sourceTree = "<group>"; };
 		18AF2E561D6420C2000B9C57 /* 3h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3h.png; sourceTree = "<group>"; };
 		18AF2E581D642245000B9C57 /* ZhiBo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZhiBo.png; sourceTree = "<group>"; };
 		18AF2E591D642245000B9C57 /* Zhi1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zhi1.png; sourceTree = "<group>"; };
@@ -968,6 +971,8 @@
 			children = (
 				18C90E661D63019F00697A43 /* TwoCollectionViewCell.h */,
 				18C90E671D63019F00697A43 /* TwoCollectionViewCell.m */,
+				18AAF3411D65A5BE00FF310E /* FourCollectionViewCell.h */,
+				18AAF3421D65A5BE00FF310E /* FourCollectionViewCell.m */,
 			);
 			name = TVClass;
 			sourceTree = "<group>";
@@ -1618,6 +1623,7 @@
 				C43434AD1D3765EE00028CAC /* DrawLineTowView.m in Sources */,
 				C4EFD5091D0FAEA5000CD0FA /* NewsViewController.m in Sources */,
 				18B43F3E1D5C7322008EAE27 /* NEEnterLiveButton.m in Sources */,
+				18AAF3431D65A5BE00FF310E /* FourCollectionViewCell.m in Sources */,
 				C407B4B61D3CAB2000AD4835 /* DrowLineThreeView.m in Sources */,
 				18B43F441D5C7322008EAE27 /* NEEnterViewController.m in Sources */,
 				C407B4B91D3CB2BB00AD4835 /* FindViewTableViewController.m in Sources */,

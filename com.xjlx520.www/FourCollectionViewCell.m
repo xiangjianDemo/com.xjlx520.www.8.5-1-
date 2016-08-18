@@ -1,14 +1,15 @@
 //
-//  TwoCollectionViewCell.m
+//  FourCollectionViewCell.m
 //  com.xjlx520.www
 //
-//  Created by apple on 16/8/16.
+//  Created by apple on 16/8/18.
 //  Copyright © 2016年 勇 舒. All rights reserved.
 //
 
-#import "TwoCollectionViewCell.h"
+#import "FourCollectionViewCell.h"
+
 #import <SDWebImage/UIImageView+WebCache.h>
-@interface TwoCollectionViewCell (){
+@interface FourCollectionViewCell (){
     
     UIImageView *_imageView;
     UILabel *_title;
@@ -19,7 +20,7 @@
 }
 @end
 
-@implementation TwoCollectionViewCell
+@implementation FourCollectionViewCell
 
 - (instancetype)initWithFrame:(CGRect)frame{
     
@@ -46,11 +47,12 @@
     _roomNum.font = [UIFont systemFontOfSize:15];
     _roomNum.textColor = [UIColor lightGrayColor];
     
-    [_imageView sd_setImageWithURL:[NSURL URLWithString:@"http://upload.69xiu.com/upload/roomimg/2016/07/11/2567350457834c19e092c_370x280.jpg"]placeholderImage:[UIImage imageNamed:@"XJian"]];
+    [_imageView sd_setImageWithURL:[NSURL URLWithString:@"http://upload.69xiu.com/upload/roomimg/2016/07/19/25255120578e33adb4774_370x280.jpg"]placeholderImage:[UIImage imageNamed:@"XJian"]];
     _biaoti.text = [NSString stringWithFormat:@"城市"];
     _title.text = [NSString stringWithFormat:@"房名"];
     _people.text = [NSString stringWithFormat:@"人数"];
     _roomNum.text = [NSString stringWithFormat:@"房间号"];
+    
     
     [self.contentView addSubview:_imageView];
     [self.contentView addSubview:_biaoti];
@@ -58,9 +60,8 @@
     [self.contentView addSubview:_people];
     [self.contentView addSubview:_roomNum];
     
-
-
+    
+    
 }
-
 
 @end
