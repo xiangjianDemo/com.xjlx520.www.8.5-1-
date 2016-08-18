@@ -67,6 +67,7 @@
 		18C90E681D63019F00697A43 /* TwoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C90E671D63019F00697A43 /* TwoCollectionViewCell.m */; };
 		6D46CC121D655B25002B3B29 /* homeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D46CC101D655B25002B3B29 /* homeCollectionViewCell.m */; };
 		6D46CC131D655B25002B3B29 /* homeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D46CC111D655B25002B3B29 /* homeCollectionViewCell.xib */; };
+		6DC1F9B21D65A2100094098E /* YXPMBProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DC1F9B11D65A2100094098E /* YXPMBProgressView.m */; };
 		8C225E465CC6263BACCC1C7E /* libPods-com.xjlx520.www.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F67036E10DC6925246882E /* libPods-com.xjlx520.www.a */; };
 		C404CEF01D45F31400BDB0B9 /* Net1.m in Sources */ = {isa = PBXBuildFile; fileRef = C404CEEF1D45F31400BDB0B9 /* Net1.m */; };
 		C407B4B61D3CAB2000AD4835 /* DrowLineThreeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C407B4B51D3CAB2000AD4835 /* DrowLineThreeView.m */; };
@@ -413,6 +414,8 @@
 		6D46CC0F1D655B25002B3B29 /* homeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homeCollectionViewCell.h; sourceTree = "<group>"; };
 		6D46CC101D655B25002B3B29 /* homeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homeCollectionViewCell.m; sourceTree = "<group>"; };
 		6D46CC111D655B25002B3B29 /* homeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = homeCollectionViewCell.xib; sourceTree = "<group>"; };
+		6DC1F9B01D65A2100094098E /* YXPMBProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXPMBProgressView.h; sourceTree = "<group>"; };
+		6DC1F9B11D65A2100094098E /* YXPMBProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXPMBProgressView.m; sourceTree = "<group>"; };
 		C404CEEE1D45F31400BDB0B9 /* Net1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Net1.h; sourceTree = "<group>"; };
 		C404CEEF1D45F31400BDB0B9 /* Net1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Net1.m; sourceTree = "<group>"; };
 		C407B4B41D3CAB2000AD4835 /* DrowLineThreeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrowLineThreeView.h; sourceTree = "<group>"; };
@@ -1019,6 +1022,8 @@
 			children = (
 				C4BF6F5D1D584EDF005315E7 /* TheAFNetWorking.h */,
 				C4BF6F5E1D584EDF005315E7 /* TheAFNetWorking.m */,
+				6DC1F9B01D65A2100094098E /* YXPMBProgressView.h */,
+				6DC1F9B11D65A2100094098E /* YXPMBProgressView.m */,
 			);
 			name = "封装";
 			sourceTree = "<group>";
@@ -1635,6 +1640,7 @@
 				C441634B1D2DFC5C009977FE /* HomeTableViewController.m in Sources */,
 				C4EFD5151D0FB563000CD0FA /* MainNavigationController.m in Sources */,
 				18B43F3A1D5C7322008EAE27 /* NEMediaCaptureViewController.m in Sources */,
+				6DC1F9B21D65A2100094098E /* YXPMBProgressView.m in Sources */,
 				18B43E231D5C6B9E008EAE27 /* ZhiViewController.m in Sources */,
 				C4F2DC231D18F7B700B1A62D /* homeClassifiedAdsTableViewCell.m in Sources */,
 				C4F362871D12A9170003CFC2 /* SDCycleScrollView.m in Sources */,

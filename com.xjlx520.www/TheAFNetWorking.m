@@ -39,7 +39,7 @@
     }
    
      AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", nil];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"text/html", nil];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.requestSerializer.timeoutInterval = 10.f;
     NSLog(@"%@",url);
@@ -47,9 +47,7 @@
     
     
     [manager POST:url parameters:parameter progress:nil success:^(NSURLSessionDataTask * _Nonnull task, NSArray *responseObject) {
-        NSLog(@"asssssss");
-        
-        
+              
         if (dic) {
             dic(responseObject);
             [hud hideAnimated:YES];
@@ -81,7 +79,7 @@
         [hud showAnimated:YES];
     }
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", nil];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"text/html", nil];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.requestSerializer.timeoutInterval = 10.f;
     NSLog(@"%@",url);

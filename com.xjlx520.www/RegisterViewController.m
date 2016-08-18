@@ -8,9 +8,10 @@
 
 #import "RegisterViewController.h"
 #import "TheAFNetWorking.h"
-
 @interface RegisterViewController ()<UITextFieldDelegate>
-
+@property(nonatomic,strong)UITextField *tellText;
+@property(nonatomic,strong)UITextField *passWorldText;
+@property(nonatomic,strong)UITextField *passWorldText2;
 @end
 
 @implementation RegisterViewController
@@ -44,9 +45,14 @@
         textField.keyboardType = UIKeyModifierCommand;
         if (textField.tag == 11) {
             textField.secureTextEntry = YES;
-        }if (textField.tag == 12) {
+            _passWorldText = textField;
+        }else if (textField.tag == 12) {
             textField.secureTextEntry = YES;
+            _passWorldText2 = textField;
+        }else{
+            _tellText = textField;
         }
+        
         [self.view addSubview:textField];
         
     }
@@ -60,20 +66,29 @@
     [self.view addSubview:loginButton];
     
 }
+-(BOOL)isCanRegister{
 
+    if (_tellText.text.length==11&&[_passWorldText.text isEqual:_passWorldText2.text]) {
+        return YES;
+    }
+    
+    return NO;
+}
 
 - (void)action:(UIButton *)sender{
-    NSString *url = @"admin/webapi/Handler.ashx?flag=denglu";
+//    NSString *url =   [TheAFNetWorking  httpURLStr:@"admin/webapi/lx_users.ashx?flag=users_add"];
+    NSString *url = @"http://219.151.12.30:8081/admin/webapi/lx_users.ashx?flag=users_add";
+  NSDictionary *dic1 = @{@"user_full_name":_tellText.text,@"user_password":_passWorldText.text,@"user_Age":@"0",@"user_sex":@"0",@"user_Income_range":@"0",@"education":@"0",@"Advertising_interest":@"0",@"phone":@"0",@"user_Invitation_code":@"0",@"lx_region":@"0",@"lx_city":@"0",@"Types":@"0",@"user_address":@"0",@"lx_picture":@"0"};
+    NSLog(@"%@",url);
     
-    NSDictionary *parmeters = @{@"phone":@"",@"user_password":@""};
     
-    [TheAFNetWorking postHttpsURL:url parameters:parmeters AndSuccess:^(NSArray *dic) {
-        
-    } orfailure:^{
-        
-    } showHUD:YES];
+[TheAFNetWorking postHttpsURL:url parameters:dic1 AndSuccess:^(NSArray *dic) {
+    NSLog(@"%@",dic);
+} orfailure:^{
     
-}
+} showHUD:YES];
+    
+  }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
