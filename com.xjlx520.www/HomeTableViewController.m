@@ -25,8 +25,9 @@
 #import "MBProgressHUD.h"
 #import "ZhiViewController.h"
 #import "MusicViewController.h"
+#import "homeCollectionViewCell.h"
 @interface HomeTableViewController ()<SDCycleScrollViewDelegate,homeScrollViewTableViewCellDelegate,homeClassifiedAdsTableViewCellDelegate,throughOurTableViewCellDelegate,SDWebImageManagerDelegate,UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate>{
-    NSString *identifier;
+
     SDCycleScrollView *cycleScrollView1;
     NSArray *imageArray;
     
@@ -39,7 +40,7 @@
 //@property (nonatomic, strong) Net *KYNet;
 
 @end
-
+static NSString *const collectionCellID = @"homeCollectionViewCell";
 @implementation HomeTableViewController
 
 - (void)viewDidLoad {
@@ -180,7 +181,7 @@
     if (indexPath.section == 0) {
         return [UIScreen mainScreen].bounds.size.height/4;
     }if (indexPath.section == 1) {
-        return [UIScreen mainScreen].bounds.size.height/4;
+        return 2*kScreenWidth/5+10;
     }if (indexPath.section == 2) {
         return [UIScreen mainScreen].bounds.size.height/10;
     }
@@ -244,8 +245,6 @@
             
              UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
             
-            identifier = @"cell";
-            // 初始化layout
             
             UICollectionViewFlowLayout * flowLayout =[[UICollectionViewFlowLayout alloc] init];
             
@@ -261,8 +260,8 @@
             collectionView.backgroundColor=[UIColor clearColor];
             
             //注册单元格
-            [collectionView registerClass:[UICollectionViewCell class]forCellWithReuseIdentifier:identifier];
-            
+         //   [collectionView registerClass:[UICollectionViewCell class]forCellWithReuseIdentifier:identifier];
+            [collectionView registerNib:[UINib nibWithNibName:collectionCellID bundle:nil] forCellWithReuseIdentifier:collectionCellID];
             //设置代理
             
             collectionView.delegate = self;
@@ -407,70 +406,19 @@
 
 // 设置cell的内容
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *identify = @"cell";
-    
-//     homeClassCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
-//    cell.backgroundColor = [UIColor orangeColor];// 设置单元格的背景颜色
-//   
-//    [cell sizeToFit];
-//    if (!cell) {
-//        NSLog(@"无法创建CollectionViewCell时打印，自定义的cell就不可能进来了。");
-//    }
-//    cell.imageView.image = [UIImage imageNamed:@""];
-//    cell.text.text = [NSString stringWithFormat:@"cell%ld",(long)indexPath.row];
-   
-    
-    UICollectionViewCell *cell1 = [collectionView dequeueReusableCellWithReuseIdentifier:identify forIndexPath:indexPath];
-    [cell1 sizeToFit];
-    cell1.backgroundColor = [UIColor clearColor];
-    
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/5/2-25, 0, 50, 50)];
-    imageView.userInteractionEnabled = YES;
-    imageView.layer.cornerRadius = 28;
-    imageView.layer.masksToBounds = YES;
-   
-    imageView.tag = indexPath.row;
-    //    imageView.image = [UIImage imageNamed:@"wo"];
-    
+     homeCollectionViewCell *cell1 = [collectionView dequeueReusableCellWithReuseIdentifier:collectionCellID forIndexPath:indexPath];
     NSString *httpUrl = @"http://219.151.12.30:8081";
     NSString *url = [[NSString alloc]initWithFormat:@"%@%@",httpUrl,classAdsArr[indexPath.row][@"lx_picture"]];
-   
-    
-    if (url) {
-        
-//        if (ProgressHUD) {
-//            [ProgressHUD removeFromSuperview];
-//            
-//            ProgressHUD = nil;
-//        }
-    }
-   
-    [imageView sd_setImageWithURL:[NSURL URLWithString:url]  placeholderImage:[UIImage imageNamed:@"wo.png"]];
-    
-    
-    [cell1 addSubview:imageView];
-    
-    
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width/5/2-25, 42, 50, 30)];
-    label.text = [classAdsArr[indexPath.row]objectForKey:@"lx_name"];
-    
-    label.textAlignment = NSTextAlignmentCenter;
-    label.font = [UIFont boldSystemFontOfSize:12];
-    [cell1 addSubview:label];
-    
-    
-   
-    
+    [cell1.img sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"wo.png"]];
+    cell1.label1.text = [classAdsArr[indexPath.row]objectForKey:@"lx_name"];
     return cell1;
-    
-   
-}
+   }
 
 //设置元素大小
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    long l=[[UIScreen mainScreen] bounds].size.width/5;
-    return CGSizeMake(l,50);
+  
+    return CGSizeMake(kScreenWidth/5,kScreenWidth/5);
     
 }
 //UICollectionView被选中时调用的方法

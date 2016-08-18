@@ -18,10 +18,6 @@
 }
 @end
 
-// 自定义宽、高
-#define ScreenWidth ([UIScreen mainScreen].bounds.size.width)
-#define ScreenHeight ([UIScreen mainScreen].bounds.size.height)
-
 @implementation homeClassifiedAdsTableViewCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
