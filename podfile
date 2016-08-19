@@ -8,10 +8,6 @@ pod 'SDWebImage', '~>3.8'
 pod 'MBProgressHUD', '~> 1.0.0'
 pod 'SDAutoLayout', '~> 2.1.3'
 pod 'YYModel'
-<<<<<<< Updated upstream
 pod 'VTMagic'
 pod 'IQKeyboardManager'
-=======
-pod ‘VTMagic’
->>>>>>> Stashed changes
 end
