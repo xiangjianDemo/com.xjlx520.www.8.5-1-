@@ -24,6 +24,11 @@
 
 - (void)createrView{
     
+    UILabel *label1  = [[UILabel alloc]initWithFrame:CGRectMake(kScreenWidth/33.7*2, kScreenWidth/3.37, kScreenWidth/3, kScteenHeight/25)];
+    label1.backgroundColor = [UIColor orangeColor];
+    label1.text = @"请选择直播图片:";
+    [self.view addSubview:label1];
+    
     MXPhotoView *photoView = [[MXPhotoView alloc] initWithFrame:CGRectMake((kScreenWidth-100)/2, kScreenWidth/3.77, 100, 100)];
     photoView.photoViewDele = self;
     photoView.delegate = self;

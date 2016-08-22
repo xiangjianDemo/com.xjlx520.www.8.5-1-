@@ -254,8 +254,9 @@ static NSString *const collectionCellID = @"homeCollectionViewCell";
             UICollectionViewFlowLayout * flowLayout =[[UICollectionViewFlowLayout alloc] init];
             
             [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-            UIEdgeInsets top = {kScreenWidth/2/4/3.4,kScteenHeight/66.7*2.5,kScreenWidth/37.7,kScteenHeight/66.7*3};
+            UIEdgeInsets top = {kScreenWidth/2/4/3.4,kScteenHeight/66.7*2.5,kScreenWidth/37.7,kScteenHeight/66.7*2.0};
             flowLayout.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width/3, [UIScreen mainScreen].bounds.size.width/3);
+            
             
             [flowLayout setSectionInset:top];
             

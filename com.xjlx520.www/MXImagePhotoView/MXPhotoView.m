@@ -12,6 +12,7 @@
 #import <AVKit/AVKit.h>
 #import "MXBasePhotoView.h"
 #import "TheAFNetWorking.h"
+#import <AFNetworking/AFHTTPSessionManager.h>
 
 #define kWindowWidth   [UIScreen mainScreen].bounds.size.width
 #define kWindowHeight  [UIScreen mainScreen].bounds.size.height
@@ -25,6 +26,10 @@
     NSInteger count;
     CGFloat _viewDefaultHeight;
     NSMutableArray *imagePathList; // 图片地址数组
+    
+    UIImage *image1;
+    NSData *data1;
+    
 }
 @end
 
@@ -141,8 +146,8 @@
     //      当选择的类型是图片
     if ([type isEqualToString:@"public.image"]) {
         //      把图片转化为NSData
-        UIImage *image = info[UIImagePickerControllerEditedImage];
-        NSData *data = UIImageJPEGRepresentation(image, 0.03);
+        image1 = info[UIImagePickerControllerEditedImage];
+        data1 = UIImageJPEGRepresentation(image1, 0.03);
         
         
         //      图片的保存路径
@@ -153,7 +158,7 @@
         [manager createDirectoryAtPath:documentsPath withIntermediateDirectories:YES attributes:nil error:nil];
         NSString *imageName = [NSString stringWithFormat:@"/%@.png",[NSDate date]];
         
-        [manager createFileAtPath:[documentsPath stringByAppendingString:[NSString stringWithFormat:@"%@",imageName]] contents:data attributes:nil];
+        [manager createFileAtPath:[documentsPath stringByAppendingString:[NSString stringWithFormat:@"%@",imageName]] contents:data1 attributes:nil];
         
         //得到选择后沙盒的路径
         NSString *filePath = [[NSString alloc]initWithFormat:@"%@%@",documentsPath,imageName];
@@ -161,7 +166,7 @@
         
         [picker dismissViewControllerAnimated:YES completion:nil];
 #pragma mark ---  添加图片到 数组中
-        [imagePathList addObject:image];
+        [imagePathList addObject:image1];
 #pragma mark --- 触发代理方法－－－
         [self get];
     }
@@ -206,17 +211,57 @@
 #pragma mark --- 代理方法 ，传回数组－－－－
     
     [self.delegate getImagePathList:[imagePathList copy]];
-    NSString *url = [TheAFNetWorking httpURLStr:@"admin/webapi/lx_channel.ashx?flag=Procestupians1"];
-    NSDictionary *parameters = @{@"":@""};
     
-    [TheAFNetWorking postHttpsURL:url parameters:parameters AndSuccess:^(NSArray *dic) {
-        NSLog(@"请求成功%@",dic);
+    NSString *url = [TheAFNetWorking httpURLStr:@"admin/webapi/lx_channel.ashx?flag=UpLoad"];
+    
+    NSDictionary *parameters = @{@"Filedata":data1,@"pictureName":@"pictureName"};
+    
+//    [TheAFNetWorking postHttpsURL:url parameters:parameters AndSuccess:^(NSArray *dic) {
+//        NSLog(@"请求成功%@",dic);
+//        
+//    } orfailure:^{
+//        NSLog(@"请求失败");
+//    } showHUD:YES];
+    
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",
+                                                         @"text/html",
+                                                         @"image/jpeg",
+                                                         @"image/png",
+                                                         @"application/octet-stream",
+                                                         @"text/json",
+                                                         nil];
+
+    
+    [manager POST:url parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+       
+       
+        NSData *imageData = UIImageJPEGRepresentation(image1, 1);
         
-    } orfailure:^{
-        NSLog(@"请求失败");
-    } showHUD:YES];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"yyyyMMddHHmmss";
+        NSString *str = [formatter stringFromDate:[NSDate date]];
+        NSString *fileName = [NSString stringWithFormat:@"%@.jpg", str];
+        
+        //上传的参数(上传图片，以文件流的格式)
+//        [formData appendPartWithFileData:imageData
+//                                    name:@"file"
+//                                fileName:fileName
+//                                mimeType:@"image/jpeg"];
+        [formData appendPartWithFileData:UIImageJPEGRepresentation(image1, 0.7) name:@"Filedata"  fileName:@"images.jpg" mimeType:@"image/png"];
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        //打印下上传进度
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        //上传成功
+        NSLog(@"post%@",responseObject);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        //上传失败
+    }];
     
-    
+   
     
 }
 
