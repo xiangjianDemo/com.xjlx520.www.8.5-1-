@@ -6,9 +6,14 @@
 //  Copyright © 2016年 勇 舒. All rights reserved.
 //
 
-#import <JSONModel/JSONModel.h>
+//#import <JSONModel/JSONModel.h>
+//
+//@interface ZhiBoModel : JSONModel
 
-@interface ZhiBoModel : JSONModel
+#import <Foundation/Foundation.h>
+
+@interface ZhiBoModel : NSObject
+
 
 @property (nonatomic, copy) NSString *uid;
 @property (nonatomic, copy) NSString *cid;

@@ -69,6 +69,7 @@
 		18C90E681D63019F00697A43 /* TwoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C90E671D63019F00697A43 /* TwoCollectionViewCell.m */; };
 		6D46CC121D655B25002B3B29 /* homeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D46CC101D655B25002B3B29 /* homeCollectionViewCell.m */; };
 		6D46CC131D655B25002B3B29 /* homeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D46CC111D655B25002B3B29 /* homeCollectionViewCell.xib */; };
+		6D8B3FDC1D66B9A50052C4C5 /* centerHeardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B3FDB1D66B9A50052C4C5 /* centerHeardView.m */; };
 		6DC1F9B21D65A2100094098E /* YXPMBProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DC1F9B11D65A2100094098E /* YXPMBProgressView.m */; };
 		8C225E465CC6263BACCC1C7E /* libPods-com.xjlx520.www.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F67036E10DC6925246882E /* libPods-com.xjlx520.www.a */; };
 		C404CEF01D45F31400BDB0B9 /* Net1.m in Sources */ = {isa = PBXBuildFile; fileRef = C404CEEF1D45F31400BDB0B9 /* Net1.m */; };
@@ -420,6 +421,8 @@
 		6D46CC0F1D655B25002B3B29 /* homeCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = homeCollectionViewCell.h; sourceTree = "<group>"; };
 		6D46CC101D655B25002B3B29 /* homeCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = homeCollectionViewCell.m; sourceTree = "<group>"; };
 		6D46CC111D655B25002B3B29 /* homeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = homeCollectionViewCell.xib; sourceTree = "<group>"; };
+		6D8B3FDA1D66B9A50052C4C5 /* centerHeardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = centerHeardView.h; sourceTree = "<group>"; };
+		6D8B3FDB1D66B9A50052C4C5 /* centerHeardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = centerHeardView.m; sourceTree = "<group>"; };
 		6DC1F9B01D65A2100094098E /* YXPMBProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXPMBProgressView.h; sourceTree = "<group>"; };
 		6DC1F9B11D65A2100094098E /* YXPMBProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXPMBProgressView.m; sourceTree = "<group>"; };
 		C404CEEE1D45F31400BDB0B9 /* Net1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Net1.h; sourceTree = "<group>"; };
@@ -1355,6 +1358,8 @@
 			children = (
 				C423DB8E1D62B7470059AFF9 /* Content_TableViewCell.h */,
 				C423DB8F1D62B7470059AFF9 /* Content_TableViewCell.m */,
+				6D8B3FDA1D66B9A50052C4C5 /* centerHeardView.h */,
+				6D8B3FDB1D66B9A50052C4C5 /* centerHeardView.m */,
 			);
 			name = centerView;
 			sourceTree = "<group>";
@@ -1677,6 +1682,7 @@
 				C423DB961D62B7F10059AFF9 /* CenterViewTableViewController.m in Sources */,
 				C4F362811D12A9170003CFC2 /* NSData+SDDataCache.m in Sources */,
 				18C90E681D63019F00697A43 /* TwoCollectionViewCell.m in Sources */,
+				6D8B3FDC1D66B9A50052C4C5 /* centerHeardView.m in Sources */,
 				C423DB931D62B7A90059AFF9 /* RegisterViewController.m in Sources */,
 				C407B4C31D3CC1EF00AD4835 /* RollingAdvertisingTableViewController.m in Sources */,
 				C4103BEC1D112DC700CECC1B /* myTabBar.m in Sources */,

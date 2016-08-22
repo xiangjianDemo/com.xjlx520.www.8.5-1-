@@ -165,9 +165,13 @@
 //            
 //            [_dataArray2 addObjectsFromArray:dic[i]];
 //        }
+
+        
         for (NSDictionary *dic1 in dic) {
             ZhiBoModel *model = [[ZhiBoModel alloc]init];
+            
             [model yy_modelSetWithDictionary:dic1];
+            
             [_dataArray2 addObject:model];
         }
         [_twocollectionView reloadData];
