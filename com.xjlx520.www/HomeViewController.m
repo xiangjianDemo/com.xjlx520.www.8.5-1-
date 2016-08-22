@@ -60,6 +60,7 @@
     NSString *httpArg = @"flag= advertisement_details";
     
     [self request: httpUrl withHttpArg: httpArg];
+
 }
 
 -(void)request: (NSString*)httpUrl withHttpArg: (NSString*)HttpArg  {

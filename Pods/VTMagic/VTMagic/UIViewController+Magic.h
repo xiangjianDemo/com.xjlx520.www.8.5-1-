@@ -1,5 +1,5 @@
 //
-//  UIViewController+VTMagic.h
+//  UIViewController+Magic.h
 //  VTMagic
 //
 //  Created by tianzhuo on 15/7/9.
@@ -22,7 +22,7 @@
 
 @end
 
-@interface UIViewController (VTMagic)<VTMagicReuseProtocol>
+@interface UIViewController (Magic)<VTMagicReuseProtocol>
 
 /**
  *  缓存重用标识

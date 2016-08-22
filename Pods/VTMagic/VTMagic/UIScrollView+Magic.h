@@ -1,5 +1,5 @@
 //
-//  UIScrollView+VTMagic.h
+//  UIScrollView+Magic.h
 //  VTMagic
 //
 //  Created by tianzhuo on 15/7/9.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIScrollView (VTMagic)
+@interface UIScrollView (Magic)
 
 /**
 *  判断指定的frame是否在当前屏幕的可视范围内

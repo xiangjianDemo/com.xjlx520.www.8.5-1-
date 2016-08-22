@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MBProgressHUD.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
+#import <YYModel.h>
 @interface TheAFNetWorking : NSObject
 //@property(nonatomic,copy)void((^Block)(NSDictionary *dic));
 +(instancetype)sharedInstance;

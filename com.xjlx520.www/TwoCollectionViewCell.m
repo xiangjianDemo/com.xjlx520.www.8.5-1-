@@ -15,6 +15,7 @@
     UILabel *_biaoti;
     UILabel *_people;
     UILabel *_roomNum;
+    ZhiBoModel *_dataModel;
     
 }
 @end
@@ -46,20 +47,29 @@
     _roomNum.font = [UIFont systemFontOfSize:15];
     _roomNum.textColor = [UIColor lightGrayColor];
     
-    [_imageView sd_setImageWithURL:[NSURL URLWithString:@"http://upload.69xiu.com/upload/roomimg/2016/07/11/2567350457834c19e092c_370x280.jpg"]placeholderImage:[UIImage imageNamed:@"XJian"]];
-    _biaoti.text = [NSString stringWithFormat:@"城市"];
-    _title.text = [NSString stringWithFormat:@"房名"];
-    _people.text = [NSString stringWithFormat:@"人数"];
-    _roomNum.text = [NSString stringWithFormat:@"房间号"];
     
+//    [_imageView sd_setImageWithURL:[NSURL URLWithString:@"http://upload.69xiu.com/upload/roomimg/2016/07/19/25255120578e33adb4774_370x280.jpg"]placeholderImage:[UIImage imageNamed:@"XJian"]];
+//    _biaoti.text = [NSString stringWithFormat:@"城市"];
+//    _title.text = [NSString stringWithFormat:@"房名"];
+//    _people.text = [NSString stringWithFormat:@"人数"];
+//    _roomNum.text = [NSString stringWithFormat:@"房间号"];
+
     [self.contentView addSubview:_imageView];
-    [self.contentView addSubview:_biaoti];
+//    [self.contentView addSubview:_biaoti];
     [self.contentView addSubview:_title];
-    [self.contentView addSubview:_people];
-    [self.contentView addSubview:_roomNum];
+//    [self.contentView addSubview:_people];
+//    [self.contentView addSubview:_roomNum];
+
+}
+
+- (void)setModel:(ZhiBoModel *)dataModel{
+    _dataModel = dataModel;
+    [_imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://219.151.12.30:8081%@",_dataModel.tupian]]placeholderImage:[UIImage imageNamed:@"XJian"]];
+//    _biaoti.text = [NSString stringWithFormat:@"城市%@",_dataModel.province];
+    _title.text = _dataModel.name;
+//    _people.text = [NSString stringWithFormat:@"%@在线",_dataModel.usercount];
+//    _roomNum.text = [NSString stringWithFormat:@"房间号:%@",_dataModel.rid];
     
-
-
 }
 
 

@@ -7,8 +7,8 @@
 //
 
 #import "VTContentView.h"
-#import "UIViewController+VTMagic.h"
-#import "UIScrollView+VTMagic.h"
+#import "UIViewController+Magic.h"
+#import "UIScrollView+Magic.h"
 
 @interface VTContentView()
 
@@ -23,8 +23,8 @@
 @implementation VTContentView
 
 #pragma mark - Lifecycle
-
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame
+{
     self = [super initWithFrame:frame];
     if (self) {
         _needPreloading = YES;
@@ -45,26 +45,23 @@
     return self;
 }
 
-- (void)dealloc {
+- (void)dealloc
+{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)layoutSubviews {
+- (void)layoutSubviews
+{
     [super layoutSubviews];
     
-    if (CGRectIsEmpty(self.frame)) {
-        return;
-    }
-    
+    if (CGRectIsEmpty(self.frame)) return;
     CGFloat offset = self.contentOffset.x;
     CGFloat width = self.frame.size.width;
     BOOL isNotBorder = 0 != (int)offset%(int)width;
     NSInteger currentPage = offset/self.frame.size.width;
-    if (_currentPage == currentPage && isNotBorder) {
-        return;
-    }
-    
+    if (_currentPage == currentPage && isNotBorder) return;
     _currentPage = currentPage;
+    
     CGRect frame = CGRectZero;
     UIViewController *viewController = nil;
     NSArray *pathList = [_visibleDict allKeys];
@@ -91,14 +88,16 @@
 }
 
 #pragma mark - functional methods
-- (void)reloadData {
+- (void)reloadData
+{
     [self resetCacheData];
     [self resetPageFrames];
     [self setNeedsLayout];
     [self layoutIfNeeded];
 }
 
--(void)resetCacheData {
+-(void)resetCacheData
+{
     [_indexList removeAllObjects];
     for (NSInteger i = 0; i < _pageCount; i++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
@@ -113,7 +112,8 @@
     [_visibleDict removeAllObjects];
 }
 
-- (void)moveViewControllerToCache:(UIViewController *)viewController {
+- (void)moveViewControllerToCache:(UIViewController *)viewController
+{
     [viewController willMoveToParentViewController:nil];
     [viewController.view removeFromSuperview];
     [viewController removeFromParentViewController];
@@ -125,7 +125,8 @@
     [_pageCache setObject:cacheSet forKey:viewController.reuseIdentifier];
 }
 
-- (void)resetPageFrames {
+- (void)resetPageFrames
+{
     [_frameList removeAllObjects];
     CGRect frame = self.bounds;
     for (NSIndexPath *indexPath in _indexList) {
@@ -137,7 +138,8 @@
 }
 
 #pragma mark - 根据页面控制器获取对应的索引
-- (NSInteger)pageIndexForViewController:(UIViewController *)viewController {
+- (NSInteger)pageIndexForViewController:(UIViewController *)viewController
+{
     for (NSIndexPath *indexPath in _visibleDict.allKeys) {
         if ([viewController isEqual:_visibleDict[indexPath]]) {
             return indexPath.row;
@@ -146,28 +148,20 @@
     return NSNotFound;
 }
 
-- (CGRect)frameOfViewControllerAtPage:(NSUInteger)pageIndex
-{
-    if (_frameList.count <= pageIndex) {
-        return CGRectZero;
-    }
-    return [_frameList[pageIndex] CGRectValue];
-}
-
 #pragma mark - 根据索引获取页面控制器
-- (UIViewController *)viewControllerAtPage:(NSUInteger)pageIndex {
+- (UIViewController *)viewControllerAtPage:(NSUInteger)pageIndex
+{
     return [self viewControllerAtPage:pageIndex autoCreate:NO];
 }
 
-- (UIViewController *)creatViewControllerAtPage:(NSUInteger)pageIndex {
+- (UIViewController *)creatViewControllerAtPage:(NSUInteger)pageIndex
+{
     return [self viewControllerAtPage:pageIndex autoCreate:YES];
 }
 
-- (UIViewController *)viewControllerAtPage:(NSUInteger)pageIndex autoCreate:(BOOL)autoCreate {
-    if (_pageCount <= pageIndex) {
-        return nil;
-    }
-    
+- (UIViewController *)viewControllerAtPage:(NSUInteger)pageIndex autoCreate:(BOOL)autoCreate
+{
+    if (_pageCount <= pageIndex) return nil;
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:pageIndex inSection:0];
     UIViewController *viewController = [_visibleDict objectForKey:indexPath];
     if (!viewController && autoCreate) {
@@ -176,7 +170,8 @@
     return viewController;
 }
 
-- (UIViewController *)loadViewControllerAtIndexPath:(NSIndexPath *)indexPath {
+- (UIViewController *)loadViewControllerAtIndexPath:(NSIndexPath *)indexPath
+{
     UIViewController *viewController = [_dataSource contentView:self viewControllerAtPage:indexPath.row];
     if (viewController) {
         viewController.reuseIdentifier = _identifier;
@@ -190,7 +185,8 @@
 }
 
 #pragma mark - 根据缓存标识查询可重用的视图控制器
-- (UIViewController *)dequeueReusablePageWithIdentifier:(NSString *)identifier {
+- (UIViewController *)dequeueReusablePageWithIdentifier:(NSString *)identifier
+{
     _identifier = identifier;
     NSMutableSet *cacheSet = [_pageCache objectForKey:identifier];
     UIViewController *viewController = [cacheSet anyObject];
@@ -202,12 +198,14 @@
 }
 
 #pragma mark - clear memory cache
-- (void)clearMemoryCache {
+- (void)clearMemoryCache
+{
     [_pageCache removeAllObjects];
 }
 
 #pragma mark - accessor methods
-- (NSArray *)visibleList {
+- (NSArray *)visibleList
+{
     return [_visibleDict allValues];
 }
 

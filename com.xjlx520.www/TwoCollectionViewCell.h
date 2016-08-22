@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZhiBoModel.h"
 
 @interface TwoCollectionViewCell : UICollectionViewCell
-
+- (void)setModel:(ZhiBoModel *)dataModel;
 @end

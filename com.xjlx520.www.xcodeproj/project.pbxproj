@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		18AAF3431D65A5BE00FF310E /* FourCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AAF3421D65A5BE00FF310E /* FourCollectionViewCell.m */; };
+		18ACA72C1D66FED100E65D60 /* ZhiBoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18ACA72B1D66FED100E65D60 /* ZhiBoModel.m */; };
 		18AF2E571D6420C2000B9C57 /* 3h.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AF2E561D6420C2000B9C57 /* 3h.png */; };
 		18AF2E5A1D642245000B9C57 /* ZhiBo.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AF2E581D642245000B9C57 /* ZhiBo.png */; };
 		18AF2E5B1D642245000B9C57 /* Zhi1.png in Resources */ = {isa = PBXBuildFile; fileRef = 18AF2E591D642245000B9C57 /* Zhi1.png */; };
@@ -161,6 +162,8 @@
 /* Begin PBXFileReference section */
 		18AAF3411D65A5BE00FF310E /* FourCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourCollectionViewCell.h; sourceTree = "<group>"; };
 		18AAF3421D65A5BE00FF310E /* FourCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourCollectionViewCell.m; sourceTree = "<group>"; };
+		18ACA72A1D66FED100E65D60 /* ZhiBoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZhiBoModel.h; sourceTree = "<group>"; };
+		18ACA72B1D66FED100E65D60 /* ZhiBoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZhiBoModel.m; sourceTree = "<group>"; };
 		18AF2E561D6420C2000B9C57 /* 3h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3h.png; sourceTree = "<group>"; };
 		18AF2E581D642245000B9C57 /* ZhiBo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ZhiBo.png; sourceTree = "<group>"; };
 		18AF2E591D642245000B9C57 /* Zhi1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zhi1.png; sourceTree = "<group>"; };
@@ -603,6 +606,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18ACA71F1D66AB0C00E65D60 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18ACA72A1D66FED100E65D60 /* ZhiBoModel.h */,
+				18ACA72B1D66FED100E65D60 /* ZhiBoModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		18B43E201D5C67D3008EAE27 /* TV */ = {
 			isa = PBXGroup;
 			children = (
@@ -1186,6 +1198,7 @@
 		C4EFD5231D0FE785000CD0FA /* homecontroller */ = {
 			isa = PBXGroup;
 			children = (
+				18ACA71F1D66AB0C00E65D60 /* Model */,
 				18C90E651D63011200697A43 /* TVClass */,
 				18B43E201D5C67D3008EAE27 /* TV */,
 				C4F3626F1D12A9170003CFC2 /* SDCycleScrollView */,
@@ -1631,6 +1644,7 @@
 				18B43F431D5C7322008EAE27 /* NEModelLabel.m in Sources */,
 				18B43F401D5C7322008EAE27 /* NEFilterModelBtn.m in Sources */,
 				C4EFD51E1D0FBA7D000CD0FA /* MainTabBar.m in Sources */,
+				18ACA72C1D66FED100E65D60 /* ZhiBoModel.m in Sources */,
 				18B43F451D5C7322008EAE27 /* NELivePlayerControl.m in Sources */,
 				C4EFD4D31D0FAB0D000CD0FA /* main.m in Sources */,
 				18B43F3C1D5C7322008EAE27 /* NEStartLiveStreamViewController.m in Sources */,

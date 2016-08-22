@@ -83,8 +83,10 @@ static NSString *const collectionCellID = @"homeCollectionViewCell";
 // 请求头版广告方法
 - (void)postRollAdsData{
     NSString *url = [TheAFNetWorking httpURLStr:@"admin/webapi/Handler_tb_advertisement.ashx?flag=advertisement_query"];
+    
     [TheAFNetWorking postHttpsURL:url  parameters:nil AndSuccess:^(NSArray *dic) {
         rollAdsArr = dic;
+        
         [self.tableView reloadData];
 
        

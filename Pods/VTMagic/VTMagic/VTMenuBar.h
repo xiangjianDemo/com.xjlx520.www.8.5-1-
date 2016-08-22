@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "VTEnumType.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @class VTMenuBar;
 @protocol VTMenuBarDatasource <NSObject>
 /**
@@ -21,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 当前索引对应的按钮
  */
-- (UIButton *)menuBar:(VTMenuBar *)menuBar menuItemAtIndex:(NSUInteger)itemIndex;
+- (UIButton *)menuBar:(VTMenuBar *)menuBar menuItemAtIndex:(NSUInteger)index;
 
 @end
 
@@ -36,26 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)menuBar:(VTMenuBar *)menuBar didSelectItemAtIndex:(NSUInteger)itemIndex;
 
-/**
- *  根据itemIndex获取对应menuItem的宽度，若返回结果为0，内部将自动计算其宽度
- *
- *  @param magicView self
- *  @param itemIndex menuItem对应的索引
- *
- *  @return menuItem的宽度
- */
-- (CGFloat)menuBar:(VTMenuBar *)menuBar itemWidthAtIndex:(NSUInteger)itemIndex;
-
-/**
- *  根据itemIndex获取对应slider的宽度，若返回结果为0，内部将自动计算其宽度
- *
- *  @param magicView self
- *  @param itemIndex slider对应的索引
- *
- *  @return slider的宽度
- */
-- (CGFloat)menuBar:(VTMenuBar *)menuBar sliderWidthAtIndex:(NSUInteger)itemIndex;
-
 @end
 
 @interface VTMenuBar : UIScrollView
@@ -63,17 +41,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  数据源
  */
-@property (nonatomic, weak, nullable) id <VTMenuBarDatasource> datasource;
+@property (nonatomic, weak) id <VTMenuBarDatasource> datasource;
 
 /**
  *  代理
  */
-@property (nonatomic, weak, nullable) id <VTMenuBarDelegate, UIScrollViewDelegate> delegate;
+@property (nonatomic, weak) id <VTMenuBarDelegate, UIScrollViewDelegate> delegate;
 
 /**
  *  菜单名数组，字符串类型
  */
-@property (nonatomic, strong, nullable) NSArray<__kindof NSString *> *menuTitles;
+@property (nonatomic, strong) NSArray<__kindof NSString *> *menuTitles;
 
 /**
  *  导航菜单布局样式
@@ -93,7 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  当前被选中的item
  */
-@property (nonatomic, strong, readonly, nullable) UIButton *selectedItem;
+@property (nonatomic, strong, readonly) UIButton *selectedItem;
 
 /**
  *  导航菜单item的选中状态是否已被取消，默认NO
@@ -106,17 +84,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL needSkipLayout;
 
 /**
- *  自定义item宽度，默认0，当设置改属性时，itemSpacing的设置无效
- *
- *  @warning 该属性在VTLayoutStyleDivide样式下无效
+ *  自定义item宽度，仅VTLayoutStyleCustom样式下有效
  */
 @property (nonatomic, assign) CGFloat itemWidth;
 
 /**
- *  两个导航菜单item文本之间的间距，默认是25，其优先级低于itemWidth
- *  如果菜单item包含图片，则实际间距可能会更小
- *
- *  @warning 该属性在VTLayoutStyleDivide样式下无效
+ *  item按钮文字的内边距（文字距离两侧边框的距离），默认是25
  */
 @property (nonatomic, assign) CGFloat itemSpacing;
 
@@ -217,7 +190,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 当前索引对应的item
  */
-- (nullable UIButton *)itemAtIndex:(NSUInteger)index;
+- (UIButton *)itemAtIndex:(NSUInteger)index;
 
 /**
  *  根据索引生成对应的item，若对应item已经存在，则直接返回
@@ -226,7 +199,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 当前索引对应的item
  */
-- (nullable UIButton *)createItemAtIndex:(NSUInteger)index;
+- (UIButton *)createItemAtIndex:(NSUInteger)index;
 
 /**
  *  根据重用标识查询可重用的category item
@@ -238,5 +211,3 @@ NS_ASSUME_NONNULL_BEGIN
 - (__kindof UIButton *)dequeueReusableItemWithIdentifier:(NSString *)identifier;
 
 @end
-
-NS_ASSUME_NONNULL_END

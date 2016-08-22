@@ -7,9 +7,7 @@
 //  内容页
 
 #import <UIKit/UIKit.h>
-#import "VTMagicMacros.h"
-
-NS_ASSUME_NONNULL_BEGIN
+#import "VTCommon.h"
 
 @class VTContentView;
 /**
@@ -33,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  数据源
  */
-@property (nonatomic, weak, nullable) id <VTContentViewDataSource> dataSource;
+@property (nonatomic, weak) id <VTContentViewDataSource> dataSource;
 
 /**
  *  页面数量
@@ -79,16 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 页面索引
  */
-- (NSInteger)pageIndexForViewController:(nullable UIViewController *)viewController;
-
-/**
- *  根据页面索引获取对应页面的frame
- *
- *  @param pageIndex 页面索引
- *
- *  @return 页面索引
- */
-- (CGRect)frameOfViewControllerAtPage:(NSUInteger)pageIndex;
+- (NSInteger)pageIndexForViewController:(UIViewController *)viewController;
 
 /**
  *  获取索引对应的ViewController
@@ -98,7 +87,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return UIViewController对象
  */
-- (nullable UIViewController *)viewControllerAtPage:(NSUInteger)pageIndex;
+- (UIViewController *)viewControllerAtPage:(NSUInteger)pageIndex;
 
 /**
  *  根据索引生成对应的ViewController，若对应ViewController已经存在，则直接返回
@@ -107,7 +96,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return UIViewController对象
  */
-- (nullable UIViewController *)creatViewControllerAtPage:(NSUInteger)pageIndex;
+- (UIViewController *)creatViewControllerAtPage:(NSUInteger)pageIndex;
 
 /**
  *  获取索引对应的ViewController，当ViewController为nil时，根据autoCreate的值决定是否创建
@@ -117,7 +106,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return UIViewController对象
  */
-- (nullable UIViewController *)viewControllerAtPage:(NSUInteger)pageIndex autoCreate:(BOOL)autoCreate;
+- (UIViewController *)viewControllerAtPage:(NSUInteger)pageIndex autoCreate:(BOOL)autoCreate;
 
 /**
  *  根据缓存标识查询可重用的UIViewController
@@ -126,8 +115,6 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 可重用的视图控制器
  */
-- (nullable __kindof UIViewController *)dequeueReusablePageWithIdentifier:(NSString *)identifier;
+- (__kindof UIViewController *)dequeueReusablePageWithIdentifier:(NSString *)identifier;
 
 @end
-
-NS_ASSUME_NONNULL_END

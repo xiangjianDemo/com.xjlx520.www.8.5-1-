@@ -83,7 +83,7 @@
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.requestSerializer.timeoutInterval = 10.f;
     NSLog(@"%@",url);
-[manager GET:url parameters:parameter progress:nil success:^(NSURLSessionDataTask * _Nonnull task,NSArray *responseObject) {
+   [manager GET:url parameters:parameter progress:nil success:^(NSURLSessionDataTask * _Nonnull task,NSArray *responseObject) {
     if (dic) {
         dic(responseObject);
         [hud hideAnimated:YES];

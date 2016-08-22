@@ -9,11 +9,16 @@
 #import "ZhiViewController.h"
 #import "NEEnterViewController.h"
 #import <MJRefresh/MJRefresh.h>
+#import <AFNetworking/AFNetworking.h>
+#import "TheAFNetWorking.h"
+#import "YXPMBProgressView.h"
 #import "TwoCollectionViewCell.h"
 #import "FourCollectionViewCell.h"
 #import "NEStartLiveStreamViewController.h"
 #import "NEStartLiveStreamViewController.h"
 #import "NELivePlayerViewController.h"
+
+#import "ZhiBoModel.h"
 @interface ZhiViewController ()<UIScrollViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource>{
     
     CGFloat _screenWidth;
@@ -28,6 +33,7 @@
 @property (nonatomic,strong) UICollectionView *twocollectionView;
 @property (nonatomic,strong) UICollectionView *fourcollectionView;
 
+@property (nonatomic,strong) NSMutableArray *dataArray2;
 
 @end
 
@@ -39,6 +45,9 @@
     //禁止ScrollView因状态栏所偏移。
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationItem.title = @"分类直播";
+    _dataArray2 = [NSMutableArray new];
+    
+    
     [self createBigScrollView];
     [self createScrollView];
     [self addButton];
@@ -142,6 +151,36 @@
     }];
 }
 
+//创建第二页的数据请求
+#pragma mark --请求数据
+- (void)twopostClassAdsdata{
+    NSString *url =[TheAFNetWorking httpURLStr:@"admin/webapi/lx_channel.ashx?flag=lxchanneqye"];
+    NSDictionary *dicc = @{@"pags":@"1",@"page":@"10"};
+
+    [TheAFNetWorking postHttpsURL:url parameters:dicc AndSuccess:^(NSArray *dic) {
+    
+//        for (NSInteger i = 0; i < dic.count; i++) {
+//           
+//            ZhiBoModel *model =[ZhiBoModel yy_modelWithDictionary:(NSDictionary *)dic[i]];
+//            
+//            [_dataArray2 addObjectsFromArray:dic[i]];
+//        }
+        for (NSDictionary *dic1 in dic) {
+            ZhiBoModel *model = [[ZhiBoModel alloc]init];
+            [model yy_modelSetWithDictionary:dic1];
+            [_dataArray2 addObject:model];
+        }
+        [_twocollectionView reloadData];
+
+//                [self.delegate getWeatherInfoSuccessFeedback:dic];
+    } orfailure:^{
+        //        [self.delegate getWeatherInfoFailFeedback:nil];
+    } showHUD:NO];
+    
+}
+
+
+
 //创建第一页的竖向滚动视图:
 - (void)createCollectionView {
     CGRect frame = CGRectMake(0,0, self.view.frame.size.width/2-10,120);
@@ -213,7 +252,7 @@
     _twocollectionView.backgroundColor = [UIColor whiteColor];
     [_twocollectionView registerClass:[TwoCollectionViewCell class] forCellWithReuseIdentifier:@"cellId"];
     [_bigScrollView addSubview:_twocollectionView];
-    
+    [self twopostClassAdsdata];
 //    MJRefreshNormalHeader *refreshHeader =[MJRefreshNormalHeader headerWithRefreshingBlock:^{
 //        [self twocreateCollectionView];
 //    }];
@@ -242,29 +281,31 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
 
     if (collectionView == _twocollectionView) {
-        return 20;
+        return _dataArray2.count;
     }
     return 10;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (collectionView == _twocollectionView) {
-        TwoCollectionViewCell *cell1 = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellId" forIndexPath:indexPath];
+    if (collectionView == _fourcollectionView) {
+        FourCollectionViewCell *cell2 = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellIId" forIndexPath:indexPath];
         //cell1.layer.shadowOffset =CGSizeMake(2, 2);
-        cell1.layer.shadowRadius = 2;
+        cell2.layer.shadowRadius = 2;
         //cell1.layer.shadowOpacity = 0.5;
-        cell1.backgroundColor = [UIColor whiteColor];
-        cell1.userInteractionEnabled = YES;
-        return cell1;
+        cell2.backgroundColor = [UIColor whiteColor];
+        cell2.userInteractionEnabled = YES;
+//        [cell1 setModel:_dataArray2[indexPath.row] With:indexPath.row];
+        return cell2;
     }
-    TwoCollectionViewCell *cell2 = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellIId" forIndexPath:indexPath];
+    TwoCollectionViewCell *cell1 = [collectionView dequeueReusableCellWithReuseIdentifier:@"cellId" forIndexPath:indexPath];
     //cell1.layer.shadowOffset =CGSizeMake(2, 2);
-    cell2.layer.shadowRadius = 2;
+    cell1.layer.shadowRadius = 2;
     //cell1.layer.shadowOpacity = 0.5;
-    cell2.backgroundColor = [UIColor whiteColor];
-    cell2.userInteractionEnabled = YES;
-    return cell2;
+    cell1.backgroundColor = [UIColor whiteColor];
+    cell1.userInteractionEnabled = YES;
+    [cell1 setModel:_dataArray2[indexPath.row]];
+    return cell1;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -316,7 +357,7 @@
     //    }];
     //    _twocollectionView.mj_footer = refreshFooter;
     //    [refreshHeader beginRefreshing];
-    NSLog(@"4");
+
 }
 /***********************第四页collectionView*******************************/
 - (UICollectionViewLayout *)fourcreateLayout
