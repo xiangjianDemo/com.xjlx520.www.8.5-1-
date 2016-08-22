@@ -94,6 +94,10 @@
 		C43434AD1D3765EE00028CAC /* DrawLineTowView.m in Sources */ = {isa = PBXBuildFile; fileRef = C43434AC1D3765EE00028CAC /* DrawLineTowView.m */; };
 		C441634B1D2DFC5C009977FE /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C441634A1D2DFC5C009977FE /* HomeTableViewController.m */; };
 		C441F43F1D41D00E003D8116 /* ClassAdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C441F43E1D41D00E003D8116 /* ClassAdsViewController.m */; };
+		C44638ED1D6AA06300D9B6DD /* CreateLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C44638EC1D6AA06300D9B6DD /* CreateLiveViewController.m */; };
+		C44638F51D6AA4C100D9B6DD /* choose_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C44638F01D6AA4C100D9B6DD /* choose_add@2x.png */; };
+		C44638F61D6AA4C100D9B6DD /* MXBasePhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C44638F21D6AA4C100D9B6DD /* MXBasePhotoView.m */; };
+		C44638F71D6AA4C100D9B6DD /* MXPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C44638F41D6AA4C100D9B6DD /* MXPhotoView.m */; };
 		C44AEE371D389BD400F75CD2 /* CFLineChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = C44AEE361D389BD400F75CD2 /* CFLineChartView.m */; };
 		C44AEE3A1D38F4CC00F75CD2 /* PushTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C44AEE391D38F4CC00F75CD2 /* PushTableViewCell.m */; };
 		C49D03DE1D59B9D70026852B /* ClassiFactionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C49D03DD1D59B9D70026852B /* ClassiFactionModel.m */; };
@@ -464,6 +468,13 @@
 		C441634A1D2DFC5C009977FE /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
 		C441F43D1D41D00E003D8116 /* ClassAdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassAdsViewController.h; sourceTree = "<group>"; };
 		C441F43E1D41D00E003D8116 /* ClassAdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassAdsViewController.m; sourceTree = "<group>"; };
+		C44638EB1D6AA06300D9B6DD /* CreateLiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateLiveViewController.h; sourceTree = "<group>"; };
+		C44638EC1D6AA06300D9B6DD /* CreateLiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateLiveViewController.m; sourceTree = "<group>"; };
+		C44638F01D6AA4C100D9B6DD /* choose_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "choose_add@2x.png"; sourceTree = "<group>"; };
+		C44638F11D6AA4C100D9B6DD /* MXBasePhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXBasePhotoView.h; sourceTree = "<group>"; };
+		C44638F21D6AA4C100D9B6DD /* MXBasePhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXBasePhotoView.m; sourceTree = "<group>"; };
+		C44638F31D6AA4C100D9B6DD /* MXPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXPhotoView.h; sourceTree = "<group>"; };
+		C44638F41D6AA4C100D9B6DD /* MXPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXPhotoView.m; sourceTree = "<group>"; };
 		C44AEE351D389BD400F75CD2 /* CFLineChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFLineChartView.h; sourceTree = "<group>"; };
 		C44AEE361D389BD400F75CD2 /* CFLineChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFLineChartView.m; sourceTree = "<group>"; };
 		C44AEE381D38F4CC00F75CD2 /* PushTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushTableViewCell.h; sourceTree = "<group>"; };
@@ -1022,6 +1033,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C44638EF1D6AA4C100D9B6DD /* MXImagePhotoView */ = {
+			isa = PBXGroup;
+			children = (
+				C44638F01D6AA4C100D9B6DD /* choose_add@2x.png */,
+				C44638F11D6AA4C100D9B6DD /* MXBasePhotoView.h */,
+				C44638F21D6AA4C100D9B6DD /* MXBasePhotoView.m */,
+				C44638F31D6AA4C100D9B6DD /* MXPhotoView.h */,
+				C44638F41D6AA4C100D9B6DD /* MXPhotoView.m */,
+			);
+			path = MXImagePhotoView;
+			sourceTree = "<group>";
+		};
 		C4A72FB31D4E129B00FC5C51 /* DropdownMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -1356,6 +1379,7 @@
 		C4EFD5301D0FE89E000CD0FA /* centerView */ = {
 			isa = PBXGroup;
 			children = (
+				C44638EF1D6AA4C100D9B6DD /* MXImagePhotoView */,
 				C423DB8E1D62B7470059AFF9 /* Content_TableViewCell.h */,
 				C423DB8F1D62B7470059AFF9 /* Content_TableViewCell.m */,
 				6D8B3FDA1D66B9A50052C4C5 /* centerHeardView.h */,
@@ -1371,8 +1395,10 @@
 				C4EFD50E1D0FAF02000CD0FA /* CenterViewController.m */,
 				C423DB971D62B8B30059AFF9 /* LoginViewController.h */,
 				C423DB981D62B8B30059AFF9 /* LoginViewController.m */,
-				C423DB941D62B7F10059AFF9 /* CenterViewTableViewController.m */,
 				C423DB951D62B7F10059AFF9 /* CenterViewTableViewController.h */,
+				C423DB941D62B7F10059AFF9 /* CenterViewTableViewController.m */,
+				C44638EB1D6AA06300D9B6DD /* CreateLiveViewController.h */,
+				C44638EC1D6AA06300D9B6DD /* CreateLiveViewController.m */,
 				C423DB911D62B7A90059AFF9 /* RegisterViewController.m */,
 				C423DB921D62B7A90059AFF9 /* RegisterViewController.h */,
 			);
@@ -1529,6 +1555,7 @@
 				C4D9150F1D52EA3100600BD5 /* tab_0_normal.png in Resources */,
 				C4F3628E1D12AD5D0003CFC2 /* image1.png in Resources */,
 				18B43E1E1D5C66DE008EAE27 /* ico_make.png in Resources */,
+				C44638F51D6AA4C100D9B6DD /* choose_add@2x.png in Resources */,
 				C4DBA6A11D48C09A000EBF10 /* push.png in Resources */,
 				C4D915121D52EA3100600BD5 /* tab_4_normal.png in Resources */,
 				18AF2E5A1D642245000B9C57 /* ZhiBo.png in Resources */,
@@ -1634,6 +1661,7 @@
 				C4A72FBE1D4E129B00FC5C51 /* DropdownMenu.m in Sources */,
 				C4F362841D12A9170003CFC2 /* TADotView.m in Sources */,
 				C4DBA69E1D484F11000EBF10 /* ClassAdsDetailTableViewController.m in Sources */,
+				C44638F61D6AA4C100D9B6DD /* MXBasePhotoView.m in Sources */,
 				C41555781D349254009316D4 /* homeClassCollectionViewCell.m in Sources */,
 				18B43F3B1D5C7322008EAE27 /* NEPushUrlViewController.m in Sources */,
 				6D46CC121D655B25002B3B29 /* homeCollectionViewCell.m in Sources */,
@@ -1654,6 +1682,7 @@
 				C4EFD4D31D0FAB0D000CD0FA /* main.m in Sources */,
 				18B43F3C1D5C7322008EAE27 /* NEStartLiveStreamViewController.m in Sources */,
 				C441F43F1D41D00E003D8116 /* ClassAdsViewController.m in Sources */,
+				C44638ED1D6AA06300D9B6DD /* CreateLiveViewController.m in Sources */,
 				C4A72FBC1D4E129B00FC5C51 /* ConditionDoubleTableView.m in Sources */,
 				C4F362821D12A9170003CFC2 /* TAAbstractDotView.m in Sources */,
 				C4F2DC201D18E34000B1A62D /* homeScrollViewTableViewCell.m in Sources */,
@@ -1674,6 +1703,7 @@
 				C4EFD50F1D0FAF02000CD0FA /* CenterViewController.m in Sources */,
 				C4A6CDEF1D656C0700D89802 /* ClassCollectionViewCell.m in Sources */,
 				18B43F3D1D5C7322008EAE27 /* NEAudioModelBtn.m in Sources */,
+				C44638F71D6AA4C100D9B6DD /* MXPhotoView.m in Sources */,
 				C407B4C61D3CC21600AD4835 /* PushAdvertisingTableViewController.m in Sources */,
 				C423DB901D62B7470059AFF9 /* Content_TableViewCell.m in Sources */,
 				C4F362851D12A9170003CFC2 /* TAPageControl.m in Sources */,
