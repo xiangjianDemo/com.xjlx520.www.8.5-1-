@@ -11,7 +11,6 @@
 #import "Content_TableViewCell.h"
 #import "LoginViewController.h"
 #import "centerHeardView.h"
-#import "CreateLiveViewController.h"
 @interface CenterViewTableViewController ()<UITableViewDelegate>
 
 @end
@@ -62,7 +61,7 @@
             break;
         case 2:
         {
-            return 3;
+            return 2;
         }
             break;
             
@@ -112,7 +111,7 @@
             if (cell.textLabel.text != nil) {
                 cell.textLabel.text = nil;
             }
-            NSArray *title = @[@"帮助与反馈",@"创建房间",@"设置"];
+            NSArray *title = @[@"帮助与反馈",@"设置"];
                         cell.textLabel.text = title[indexPath.row];
             
         }
@@ -179,8 +178,6 @@
         }
         case 2:
         {
-           
-            
             break;
         }
         default:
@@ -192,20 +189,14 @@
     switch (indexPath.row) {
         case 0:
         {
-            
             break;
         }
         case 1:
         {
-            NSLog(@"hello word");
-            
-            CreateLiveViewController *createrLive = [[CreateLiveViewController alloc]init];
-            [self.navigationController pushViewController:createrLive animated:YES];
             break;
         }
         case 2:
         {
-            
             break;
         }
         default:
