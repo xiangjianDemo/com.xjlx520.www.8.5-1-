@@ -1033,6 +1033,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6D7890A91D6BFEFB00B83C24 /* gift(礼物) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "gift(礼物)";
+			sourceTree = "<group>";
+		};
 		C44638EF1D6AA4C100D9B6DD /* MXImagePhotoView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1130,6 +1137,7 @@
 		C4EFD4D01D0FAB0D000CD0FA /* com.xjlx520.www */ = {
 			isa = PBXGroup;
 			children = (
+				6D7890A91D6BFEFB00B83C24 /* gift(礼物) */,
 				18B43E4B1D5C7322008EAE27 /* Sections */,
 				18B43E431D5C7311008EAE27 /* Resource */,
 				C4BF6F5C1D584EA6005315E7 /* 封装 */,
@@ -1880,6 +1888,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/com.xjlx520.www/Sections/Venders/LivePlayer/Libs",
 					"$(PROJECT_DIR)/com.xjlx520.www/Sections/Venders/LiveStream/libs",
+					"$(PROJECT_DIR)/com.xjlx520.www/NHGiftAnimtionSDK",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gzkiwi.--1-0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1905,6 +1914,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/com.xjlx520.www/Sections/Venders/LivePlayer/Libs",
 					"$(PROJECT_DIR)/com.xjlx520.www/Sections/Venders/LiveStream/libs",
+					"$(PROJECT_DIR)/com.xjlx520.www/NHGiftAnimtionSDK",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gzkiwi.--1-0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
