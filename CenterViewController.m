@@ -36,9 +36,7 @@
 - (void)action:(UIButton *)sender{
     
     LoginViewController *loggin = [[LoginViewController alloc]init];
-    
     [self.navigationController pushViewController:loggin animated:YES];
-    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -34,8 +34,6 @@
 @property (nonatomic,strong) UICollectionView *fourcollectionView;
 
 @property (nonatomic,strong) NSMutableArray *dataArray2;
-@property (nonatomic,strong) ZhiBoModel *model;
-@property (nonatomic,assign) NSInteger twopages;
 
 @end
 
@@ -153,55 +151,52 @@
     }];
 }
 
-#pragma mark --第二页请求数据
--(void)requestData:(void(^)())succeed{
-    NSString *pagss1 = [NSString stringWithFormat:@"%ld",_twopages];
-    
+//创建第二页的数据请求
+#pragma mark --请求数据
+- (void)twopostClassAdsdata{
     NSString *url =[TheAFNetWorking httpURLStr:@"admin/webapi/lx_channel.ashx?flag=lxchanneqye"];
-    
-    NSDictionary *dicc = [[NSDictionary alloc]init];
-    dicc = @{@"pags":pagss1,@"page":@"10"};
-    NSLog(@"%ld",_twopages);
-    
+    NSDictionary *dicc = @{@"pags":@"1",@"page":@"10"};
+
     [TheAFNetWorking postHttpsURL:url parameters:dicc AndSuccess:^(NSArray *dic) {
+    
+//        for (NSInteger i = 0; i < dic.count; i++) {
+//           
+//            ZhiBoModel *model =[ZhiBoModel yy_modelWithDictionary:(NSDictionary *)dic[i]];
+//            
+//            [_dataArray2 addObjectsFromArray:dic[i]];
+//        }
+
         
         for (NSDictionary *dic1 in dic) {
-            _model = [[ZhiBoModel alloc]init];
+            ZhiBoModel *model = [[ZhiBoModel alloc]init];
             
-            [_model yy_modelSetWithDictionary:dic1];
-            [_dataArray2 addObject:_model];
-           
+            [model yy_modelSetWithDictionary:dic1];
+            
+            [_dataArray2 addObject:model];
         }
-        if (dic!=nil) {
-            if (succeed) {
-                succeed();
-            }
-        }
-        [_twocollectionView.mj_footer endRefreshing];
-        [_twocollectionView.mj_header endRefreshing];
+        [_twocollectionView reloadData];
 
-        //        [self.delegate getWeatherInfoSuccessFeedback:dic];
-    } orfailure:^{//请求失败调用此方法
-        [_twocollectionView.mj_footer endRefreshing];
-        [_twocollectionView.mj_header endRefreshing];
+//                [self.delegate getWeatherInfoSuccessFeedback:dic];
+    } orfailure:^{
         //        [self.delegate getWeatherInfoFailFeedback:nil];
     } showHUD:NO];
     
-
 }
 
-#pragma mark --创建第一页的竖向滚动视图
+
+
+//创建第一页的竖向滚动视图:
 - (void)createCollectionView {
     CGRect frame = CGRectMake(0,0, self.view.frame.size.width/2-10,120);
 
     UIButton *button = [[UIButton alloc]initWithFrame:frame];
     [button setImage:[UIImage imageNamed:@"class"] forState: UIControlStateNormal];
-    [button addTarget:self action:@selector(playButton:) forControlEvents:UIControlEventTouchUpInside];
+//    [button addTarget:self action:@selector(joinButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [_bigScrollView addSubview:button];
     
     UIButton *button2 = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(button.frame)+20, 0, self.view.frame.size.width/2-10, 120)];
     [button2 setImage:[UIImage imageNamed:@"XJian"] forState:UIControlStateNormal];
-    [button2 addTarget:self action:@selector(playButton:) forControlEvents:UIControlEventTouchUpInside];
+    [button2 addTarget:self action:@selector(playButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [_bigScrollView addSubview:button2];
     NSLog(@"1");
 //    UIView *view1 = [[UIView alloc]initWithFrame:frame];
@@ -236,9 +231,9 @@
 //    [self presentViewController:startLive animated:YES completion:nil];
 //}
 
-- (void)playButton:(UIButton *)button{
+- (void)playButtonPressed:(id)sender {
     
-    NSURL *url = [[NSURL alloc] initWithString:@"http://pullhls68821d29.live.126.net/live/12d0a54e818f4631afec028fa24f61b6/playlist.m3u8"];
+    NSURL *url = [[NSURL alloc] initWithString:@"http://pullhls68821d29.live.126.net/live/cbfa59943264487ab8e614165ce6c01c/playlist.m3u8"];
     
     NSMutableArray *decodeParm = [[NSMutableArray alloc] init];
     [decodeParm addObject:@"software"];
@@ -250,7 +245,7 @@
     
 }
 
-#pragma mark --创建第二页的竖向滚动视图
+//创建第二页的竖向滚动视图:
 - (void)twocreateCollectionView {
     CGRect frame = CGRectMake(self.view.frame.size.width,0, self.view.frame.size.width,CGRectGetHeight(_bigScrollView.frame)-64);
     _twocollectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:[self twocreateLayout]];
@@ -261,27 +256,16 @@
     _twocollectionView.backgroundColor = [UIColor whiteColor];
     [_twocollectionView registerClass:[TwoCollectionViewCell class] forCellWithReuseIdentifier:@"cellId"];
     [_bigScrollView addSubview:_twocollectionView];
-//    [self twopostClassAdsdata];
-    
-    MJRefreshNormalHeader *refreshHeader =[MJRefreshNormalHeader headerWithRefreshingBlock:^{
-//        [self twopostClassAdsdata:NO];
-         _twopages = 1;
-        [_dataArray2 removeAllObjects];
-        [self requestData:^{
-            [_twocollectionView reloadData];
-        }];
-    }];
-    _twocollectionView.mj_header = refreshHeader;
-    
-    MJRefreshBackNormalFooter *refreshFooter = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-         _twopages++;
-        [self requestData:^{
-            [_twocollectionView reloadData];
-        }];
-//        [self twopostClassAdsdata:YES];
-    }];
-    _twocollectionView.mj_footer = refreshFooter;
-    [refreshHeader beginRefreshing];
+    [self twopostClassAdsdata];
+//    MJRefreshNormalHeader *refreshHeader =[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        [self twocreateCollectionView];
+//    }];
+//    _twocollectionView.mj_header = refreshHeader;
+//    MJRefreshBackNormalFooter *refreshFooter = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+//        [self twocreateCollectionView];
+//    }];
+//    _twocollectionView.mj_footer = refreshFooter;
+//    [refreshHeader beginRefreshing];
     NSLog(@"2");
 }
 /***********************第二页collectionView*******************************/
@@ -330,9 +314,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 
-    _model = _dataArray2[indexPath.row];
-//    NSString *cid =[NSString stringWithFormat:@"http://pullhls68821d29.live.126.net/live/%@/playlist.m3u8",_model.cid];
-    NSURL *url = [[NSURL alloc] initWithString:_model.hlsPullUrl];
+    NSURL *url = [[NSURL alloc] initWithString:@"http://pullhls68821d29.live.126.net/live/cbfa59943264487ab8e614165ce6c01c/playlist.m3u8"];
     
     NSMutableArray *decodeParm = [[NSMutableArray alloc] init];
     [decodeParm addObject:@"software"];
@@ -343,7 +325,7 @@
     [self presentViewController:livePlayerVC animated:YES completion:nil];
 }
 
-#pragma mark --创建第三页的竖向滚动视图
+//创建第三页的竖向滚动视图:
 - (void)threecreateCollectionView {
     CGRect frame = CGRectMake((self.view.frame.size.width)*2,0, self.view.frame.size.width/2-10,120);
     UIButton *button = [[UIButton alloc]initWithFrame:frame];
@@ -358,7 +340,7 @@
     NSLog(@"3");
 }
 
-#pragma mark --创建第四页的竖向滚动视图
+//创建第四页的竖向滚动视图:
 - (void)fourcreateCollectionView {
     CGRect frame = CGRectMake(self.view.frame.size.width*3,0, self.view.frame.size.width,CGRectGetHeight(_bigScrollView.frame)-64);
     _fourcollectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:[self fourcreateLayout]];
