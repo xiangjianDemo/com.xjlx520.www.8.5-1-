@@ -44,6 +44,7 @@
         textField.placeholder = textArray1[i];
         textField.leftViewMode = UITextFieldViewModeAlways;
         textField.keyboardType = UIKeyModifierCommand;
+        
         if (textField.tag == 11) {
             textField.secureTextEntry = YES;
             _passWorldText = textField;
@@ -106,6 +107,17 @@
         
     } showHUD:YES];
 }
+
+//监听点击空白收回键盘
+-  (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [super touchesBegan:touches withEvent:event];
+    [_tellText resignFirstResponder];
+    [_passWorldText resignFirstResponder];
+    [_passWorldText2 resignFirstResponder];
+}
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     

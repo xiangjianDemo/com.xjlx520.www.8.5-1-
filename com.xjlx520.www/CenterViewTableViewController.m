@@ -124,6 +124,7 @@
 
 - (void)action:(UIButton *)sender{
     LoginViewController *loginView = [[LoginViewController alloc]init];
+    [loginView setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:loginView animated:YES];
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
