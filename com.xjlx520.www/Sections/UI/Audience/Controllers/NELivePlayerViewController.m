@@ -12,6 +12,10 @@
 #import "NELivePlayerController.h"
 #import "UIView+NE.h"
 #import "UIAlertView+NE.h"
+#import <SDAutoLayout.h>
+#import "NHHeader.h"
+#import "NHCarViews.h"
+#import "NHPlaneViews.h"
 
 @interface NELivePlayerViewController ()
 {
@@ -23,6 +27,10 @@
 @property (nonatomic, strong) UIActivityIndicatorView *bufferingIndicate;
 @property (nonatomic, strong) UILabel *bufferingReminder;
 @property (nonatomic, strong) UIButton *playBtn;
+@property (nonatomic, strong) UIButton *flowerBtn;
+@property (nonatomic, strong) UIButton *carBtn;
+@property (nonatomic, strong) UIButton *planteBtn;
+@property (nonatomic, weak) NHPresentFlower *flower;
 
 @end
 @implementation NELivePlayerViewController
@@ -93,8 +101,76 @@
     [self.view addSubview:self.bufferingReminder];
     [self.view addSubview:self.playQuitBtn];
     [self.view addSubview:self.playBtn];
-    
+    [self giveGiftButtons];
     self.mediaControl.delegatePlayer = self.liveplayer;
+}
+-(void)giveGiftButtons{
+    _flowerBtn =  ({
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.backgroundColor = [UIColor redColor];
+        [button setTitle:@"送花" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(giveflower) forControlEvents: UIControlEventTouchUpInside ];
+        [self.view addSubview:button];
+        button.sd_layout.rightEqualToView(self.view).centerYEqualToView(self.view).widthRatioToView(self.view,0.1).heightRatioToView(self.view,0.05);
+        button;
+    });
+    _carBtn =  ({
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.backgroundColor = [UIColor redColor];
+        [button setTitle:@"跑车" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(givecar) forControlEvents: UIControlEventTouchUpInside ];
+        [self.view addSubview:button];
+        button.sd_layout.rightEqualToView(self.view).topSpaceToView(_flowerBtn,kScreenWidth/30).widthRatioToView(self.view,0.1).heightRatioToView(self.view,0.05);
+        button;
+    });
+    _planteBtn =  ({
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.backgroundColor = [UIColor redColor];
+        [button setTitle:@"飞机" forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(givePlante) forControlEvents: UIControlEventTouchUpInside ];
+        [self.view addSubview:button];
+        button.sd_layout.rightEqualToView(self.view).topSpaceToView(_carBtn,kScreenWidth/30).widthRatioToView(self.view,0.1).heightRatioToView(self.view,0.05);
+        button;
+    });
+
+}
+-(void)givePlante{
+    NHPlaneViews *plane = [NHPlaneViews loadPlaneViewWithPoint:CGPointMake(NHBounds.width + 232, 0)];
+    //plane.curveControlAndEndPoints 用法同carView一样
+    
+    [plane addAnimationsMoveToPoint:CGPointMake(NHBounds.width, 100) endPoint:CGPointMake(-500, 410)];
+    [self.view addSubview:plane];
+
+}
+-(void)givecar{
+    NHCarViews *car = [NHCarViews loadCarViewWithPoint:CGPointZero];
+    
+    //数组中放CGRect数据，CGRect的x和y分别作为控制点的x和y，CGRect的width和height作为结束点的x和y
+    //方法如下：数组内的每个元素代码一个控制点和结束点
+    NSMutableArray *pointArrs = [[NSMutableArray alloc] init];
+    CGFloat width = [UIScreen mainScreen].bounds.size.width / 2;
+    [pointArrs addObject:NSStringFromCGRect(CGRectMake(width, 300, width, 300))];
+    //    pointArrs addObject:...添加更多的CGRect
+    car.curveControlAndEndPoints = pointArrs;
+    
+    [car addAnimationsMoveToPoint:CGPointMake(0, 100) endPoint:CGPointMake(self.view.bounds.size.width +166, 500)];
+    [self.view addSubview:car];
+
+}
+-(void)giveflower{
+    if (_flower == nil) {
+        [self addFlowerView];
+    }else{
+        _flower.effect = NHSendEffectSpring;
+        //_flower.scaleValue = @[@4.2,@3.5,@1.2,@3.8,@3.3,@3.0,@2.0,@1.0];
+        [_flower continuePresentFlowers];
+    }
+}
+- (void)addFlowerView{
+    NHPresentFlower *flower = [[NHPresentFlower alloc] initWithFrame:CGRectMake(0, 200, self.view.bounds.size.width, 50)presentFlowerEffect:NHSendEffectShake];
+    flower.autoHiddenTime = 5;
+    [self.view addSubview:flower];
+    _flower = flower;
 }
 
 - (BOOL)prefersStatusBarHidden
